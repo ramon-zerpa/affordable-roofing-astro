@@ -1,0 +1,58 @@
+{
+  "florida-roofing-license": {
+    "claimId": "florida-roofing-license",
+    "statement": "Florida roofing contractor license CCC1326722",
+    "category": "license",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/",
+    "reviewAgainAt": "2026-08-17"
+  },
+  "gaf-master-elite": {
+    "claimId": "gaf-master-elite",
+    "statement": "GAF Master Elite certification and associated ranking claims",
+    "category": "certification",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/",
+    "reviewAgainAt": "2026-08-17"
+  },
+  "top-three-percent": {
+    "claimId": "top-three-percent",
+    "statement": "Affordable Roofing Systems is among the top 3% of roofers nationwide",
+    "category": "certification",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/",
+    "reviewAgainAt": "2026-08-17"
+  },
+  "years-of-experience": {
+    "claimId": "years-of-experience",
+    "statement": "More than 25 years of roofing industry experience",
+    "category": "experience",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/",
+    "reviewAgainAt": "2026-08-17"
+  },
+  "quality-guaranteed": {
+    "claimId": "quality-guaranteed",
+    "statement": "100% quality guaranteed",
+    "category": "guarantee",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/",
+    "reviewAgainAt": "2026-08-17"
+  },
+  "liability-insurance": {
+    "claimId": "liability-insurance",
+    "statement": "$1 million liability insurance policy",
+    "category": "insurance",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/",
+    "reviewAgainAt": "2026-08-17"
+  },
+  "hearth-financing-terms": {
+    "claimId": "hearth-financing-terms",
+    "statement": "Hearth loan amounts, terms, rates, credit criteria, and fees",
+    "category": "financing",
+    "verificationStatus": "pending",
+    "sourceUrl": "https://www.affordableroofingflorida.com/financing/",
+    "reviewAgainAt": "2026-08-17"
+  }
+}

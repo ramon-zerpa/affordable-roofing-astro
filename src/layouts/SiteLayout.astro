@@ -1,0 +1,93 @@
+---
+/* eslint-disable astro/no-set-html-directive -- JSON-LD is serialized from typed local data and escapes opening angle brackets. */
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import jostLatin from "@fontsource-variable/jost/files/jost-latin-wght-normal.woff2?url";
+import "../styles/global.css";
+import { site } from "../data/site";
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  robots?: string;
+  preloadImage?: {
+    href: string;
+    srcset?: string;
+    sizes?: string;
+  };
+  structuredData?: ReadonlyArray<Record<string, unknown>>;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonicalPath = "/",
+  robots = "noindex,nofollow",
+  preloadImage,
+  structuredData = [],
+} = Astro.props;
+const canonicalUrl = new URL(canonicalPath, site.origin).toString();
+const t = useTranslations(lang);
+const serializedStructuredData = structuredData.map((entry) =>
+  JSON.stringify(entry).replaceAll("<", "\\u003c"),
+);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={t("site.name")} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={interLatin}
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={jostLatin}
+      crossorigin
+    />
+    {
+      preloadImage && (
+        <link
+          rel="preload"
+          as="image"
+          href={preloadImage.href}
+          imagesrcset={preloadImage.srcset}
+          imagesizes={preloadImage.sizes}
+          fetchpriority="high"
+        />
+      )
+    }
+    {
+      serializedStructuredData.map((entry) => (
+        <script type="application/ld+json" set:html={entry} is:inline />
+      ))
+    }
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{t("a11y.skipToContent")}</a>
+    <slot />
+  </body>
+</html>

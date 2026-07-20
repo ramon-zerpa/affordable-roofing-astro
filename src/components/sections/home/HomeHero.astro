@@ -1,0 +1,536 @@
+---
+import gafAward from "../../../assets/images/home/gaf-presidents-club.webp";
+import heroMobile from "../../../assets/images/home/hero-roofing-mobile.webp";
+import heroDesktop from "../../../assets/images/home/hero-roofing.webp";
+import heroTeam from "../../../assets/images/home/hero-team.webp";
+import { heroTrustItems, site } from "../../../data/site";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="hero" aria-labelledby="homepage-hero-title">
+  <picture class="hero-background" aria-hidden="true">
+    <source media="(max-width: 63.9375rem)" srcset={heroMobile.src} />
+    <img
+      src={heroDesktop.src}
+      width={heroDesktop.width}
+      height={heroDesktop.height}
+      alt=""
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
+  <div class="hero-image-overlay"></div>
+  <div class="hero-copy-overlay"></div>
+
+  <svg
+    class="architectural-stripe architectural-stripe-blue"
+    viewBox="0 0 180 920"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path d="M70 0h110l-70 920H0z"></path>
+  </svg>
+  <svg
+    class="architectural-stripe architectural-stripe-orange"
+    viewBox="0 0 210 1070"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path d="M88 0h122l-88 1070H0z"></path>
+  </svg>
+
+  <div class="hero-container">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">{t("hero.eyebrow")}</p>
+      <h1 id="homepage-hero-title">{t("hero.title")}</h1>
+      <p class="hero-body">{t("hero.body")}</p>
+
+      <div class="hero-actions">
+        <a class="hero-estimate" href={site.estimateHref}
+          >{t("site.estimate")}</a
+        >
+        <a class="hero-phone" href={site.phoneHref}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0 1 22 16.92Z"
+            ></path>
+          </svg>
+          {t("site.phoneDisplay")}
+        </a>
+      </div>
+
+      <p class="service-area">{t("hero.serviceArea")}</p>
+
+      <ul class="trust-grid" aria-label="Company credentials">
+        {
+          heroTrustItems.map((item) => (
+            <li>
+              <span class="trust-check" aria-hidden="true">
+                ✓
+              </span>
+              <span class="trust-copy">
+                <strong>{t(item.labelKey)}</strong>
+                <span>{t(item.detailKey)}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <img
+      class="gaf-award"
+      src={gafAward.src}
+      width={gafAward.width}
+      height={gafAward.height}
+      alt={t("hero.gafAlt")}
+      decoding="async"
+    />
+
+    <figure class="team-card">
+      <img
+        src={heroTeam.src}
+        width={heroTeam.width}
+        height={heroTeam.height}
+        alt={t("hero.teamAlt")}
+        decoding="async"
+      />
+      <figcaption>{t("hero.teamCaption")}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 46.625rem;
+    overflow: hidden;
+    color: var(--color-on-dark);
+    background: var(--color-brand-navy);
+  }
+
+  .hero-background,
+  .hero-background img,
+  .hero-image-overlay,
+  .hero-copy-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-background img {
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  .hero-image-overlay {
+    background: transparent;
+  }
+
+  .hero-copy-overlay {
+    background: rgb(4 47 87 / 85%);
+  }
+
+  .architectural-stripe,
+  .gaf-award,
+  .team-card {
+    display: none;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    min-height: inherit;
+    padding: 2.5625rem 1.25rem 3.75rem;
+    margin-inline: auto;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  .hero-eyebrow {
+    margin: 0;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: 0.0375rem;
+    color: var(--color-brand-orange);
+  }
+
+  h1 {
+    max-width: 20rem;
+    margin: 0.9375rem 0 0;
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.04;
+    color: var(--color-on-dark);
+    text-wrap: balance;
+  }
+
+  .hero-body {
+    max-width: 20rem;
+    margin: 1.125rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--color-text-on-dark-muted);
+  }
+
+  .hero-actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.6875rem;
+  }
+
+  .hero-estimate,
+  .hero-phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.125rem;
+    font-size: 0.9375rem;
+    font-weight: 900;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    border-radius: var(--radius-button);
+  }
+
+  .hero-estimate {
+    background: var(--color-action);
+  }
+
+  .hero-phone {
+    gap: 0.5rem;
+    background: rgb(255 255 255 / 6%);
+    border: 1px solid var(--color-on-dark);
+  }
+
+  .hero-phone svg {
+    width: 1.0625rem;
+    height: 1.0625rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3rem;
+    padding-inline: 1rem;
+    margin: 1.0625rem 0 0;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    line-height: 1.28;
+    text-align: center;
+    color: var(--color-on-dark);
+    background: rgb(255 255 255 / 8%);
+    border: 1px solid rgb(255 255 255 / 22%);
+    border-radius: var(--radius-button);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem 0.5rem;
+    padding: 0;
+    margin: 1.25rem 0 0;
+    list-style: none;
+  }
+
+  .trust-grid li {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 3.875rem;
+    padding: 0.625rem 0.75rem;
+    background: var(--color-surface);
+    border-radius: var(--radius-card);
+  }
+
+  .trust-check {
+    flex: 0 0 auto;
+    margin-right: 0.75rem;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--color-brand-orange);
+  }
+
+  .trust-copy {
+    display: grid;
+    min-width: 0;
+    gap: 0.125rem;
+  }
+
+  .trust-copy strong {
+    overflow: hidden;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--color-brand-blue);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .trust-copy span {
+    overflow: hidden;
+    font-size: 0.625rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-text-muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hero-estimate:hover,
+  .hero-estimate:focus-visible {
+    background: var(--color-action-hover);
+  }
+
+  .hero-phone:hover,
+  .hero-phone:focus-visible {
+    background: rgb(255 255 255 / 16%);
+  }
+
+  @media (min-width: 64rem) {
+    .hero {
+      min-height: 54.0625rem;
+    }
+
+    .hero-image-overlay {
+      background: rgb(4 47 87 / 35%);
+    }
+
+    .hero-copy-overlay {
+      right: auto;
+      width: 56%;
+      background: rgb(4 47 87 / 80%);
+      clip-path: polygon(0 0, 100% 0, 88.4259% 100%, 0 100%);
+    }
+
+    .architectural-stripe {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      height: 100%;
+    }
+
+    .architectural-stripe-blue {
+      top: 0;
+      left: 62.5%;
+      width: 16.6667%;
+      fill: rgb(6 81 149 / 60%);
+    }
+
+    .architectural-stripe-orange {
+      top: 0.3125rem;
+      left: 75%;
+      width: 18.0556%;
+      height: 53.75rem;
+      fill: rgb(255 97 25 / 70%);
+      transform: rotate(1deg);
+      transform-origin: top left;
+    }
+
+    .hero-container {
+      max-width: 80rem;
+      min-height: 54.0625rem;
+      padding: 12.5rem 0 3.75rem;
+    }
+
+    .hero-copy {
+      max-width: 49rem;
+      margin-inline: 0;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-width: 21.5625rem;
+      min-height: 3.4375rem;
+      padding-inline: 1.4375rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      letter-spacing: 0;
+      background: var(--color-surface);
+      border-radius: 999px;
+    }
+
+    h1 {
+      max-width: 39.5rem;
+      margin-top: 1.5625rem;
+      font-size: 3.75rem;
+      line-height: 1.02;
+    }
+
+    .hero-body {
+      max-width: 38.375rem;
+      margin-top: 1.4375rem;
+      font-size: 1.125rem;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.0625rem;
+    }
+
+    .hero-estimate,
+    .hero-phone {
+      width: auto;
+      min-height: 3.4375rem;
+    }
+
+    .hero-estimate {
+      min-width: 12.5rem;
+    }
+
+    .hero-phone {
+      min-width: 10.9375rem;
+    }
+
+    .hero-phone svg {
+      display: none;
+    }
+
+    .service-area {
+      width: 30.625rem;
+      min-height: 2.8125rem;
+      margin-top: 1.875rem;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+
+    .trust-grid {
+      grid-template-columns: repeat(4, 11.5rem);
+      gap: 1rem;
+      margin-top: 2.1875rem;
+    }
+
+    .trust-grid li {
+      min-height: 4.375rem;
+      padding: 0.875rem 0.375rem 0.875rem 0.875rem;
+    }
+
+    .trust-check {
+      display: grid;
+      width: 2.375rem;
+      height: 2.375rem;
+      margin-right: 0.75rem;
+      place-items: center;
+      background: var(--color-brand-blue-soft);
+      border-radius: var(--radius-button);
+    }
+
+    .trust-copy strong {
+      font-size: 0.875rem;
+    }
+
+    .trust-copy span {
+      font-size: 0.6875rem;
+    }
+
+    .gaf-award {
+      position: absolute;
+      top: 13.3125rem;
+      right: 21.25rem;
+      z-index: 5;
+      display: block;
+      width: 12.5rem;
+      height: 12.5rem;
+      object-fit: contain;
+    }
+
+    .team-card {
+      position: absolute;
+      top: 18.4375rem;
+      right: 0.0625rem;
+      z-index: 4;
+      display: block;
+      width: 31.875rem;
+      height: 24.375rem;
+      margin: 0;
+      overflow: hidden;
+      background: var(--color-surface);
+      border: 4px solid var(--color-surface);
+      border-radius: var(--radius-card);
+    }
+
+    .team-card > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-card figcaption {
+      position: absolute;
+      bottom: 2.875rem;
+      left: 2.25rem;
+      display: flex;
+      align-items: center;
+      width: 20rem;
+      min-height: 2.8125rem;
+      padding-inline: 0.8125rem;
+      font-size: 0.8125rem;
+      font-weight: 900;
+      color: var(--color-brand-blue);
+      background: var(--color-surface);
+      border-radius: var(--radius-button);
+    }
+  }
+
+  @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+    .team-card {
+      animation: hero-team-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+    }
+
+    .gaf-award {
+      transform-origin: center;
+      animation: hero-award-enter 560ms cubic-bezier(0.22, 1, 0.36, 1) 300ms
+        both;
+    }
+  }
+
+  @keyframes hero-team-enter {
+    from {
+      transform: translate3d(3rem, 0.75rem, 0) scale(0.985);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  @keyframes hero-award-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -1.5rem, 0) scale(0.92);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+</style>

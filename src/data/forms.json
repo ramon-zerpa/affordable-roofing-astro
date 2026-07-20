@@ -1,0 +1,55 @@
+{
+  "estimate-request": {
+    "formId": "estimate-request",
+    "intent": "estimate",
+    "status": "draft",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Full name",
+        "type": "text",
+        "required": true,
+        "autocomplete": "name",
+        "maxLength": 100
+      },
+      {
+        "name": "email",
+        "label": "Email address",
+        "type": "email",
+        "required": true,
+        "autocomplete": "email",
+        "maxLength": 200
+      },
+      {
+        "name": "phone",
+        "label": "Phone number",
+        "type": "tel",
+        "required": true,
+        "autocomplete": "tel",
+        "maxLength": 40
+      },
+      {
+        "name": "postalCode",
+        "label": "Project ZIP code",
+        "type": "text",
+        "required": true,
+        "autocomplete": "postal-code",
+        "maxLength": 10
+      },
+      {
+        "name": "message",
+        "label": "How can we help?",
+        "type": "textarea",
+        "required": false,
+        "autocomplete": "off",
+        "maxLength": 2000
+      }
+    ],
+    "consent": "By submitting, you agree that Affordable Roofing Systems may contact you about this request. Additional communication terms require legal review.",
+    "successMessage": "Your request was received. The team will review it and contact you using the information provided.",
+    "errorMessage": "The request could not be sent. Review the highlighted fields or call (813) 542-8462.",
+    "spamProtection": ["honeypot", "rate-limit", "turnstile"],
+    "destination": "pending-crm-or-email",
+    "retentionPolicy": "pending-business-and-legal-review"
+  }
+}

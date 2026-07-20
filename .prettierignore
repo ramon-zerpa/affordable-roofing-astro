@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+coverage/
+fidelity-audit/
+psi-audit/
+package-lock.json

@@ -1,0 +1,301 @@
+---
+import { Image } from "astro:assets";
+import designerShingles from "../../../assets/images/home/designer-shingles.jpg";
+import metalRoofing from "../../../assets/images/home/metal-roofing.jpg";
+import { roofingMaterialGuides } from "../../../data/home";
+import { site } from "../../../data/site";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const images = {
+  designer: designerShingles,
+  metal: metalRoofing,
+};
+const imageAlts = {
+  designer: t("materials.designer.imageAlt"),
+  metal: t("materials.metal.imageAlt"),
+};
+---
+
+<section
+  id="compare-premium-residential-roofing-materials"
+  class="material-guide"
+  aria-labelledby="compare-premium-residential-roofing-materials-title"
+  data-ui-id="home.roofing-material-guide"
+>
+  <div class="material-container">
+    <div class="material-intro">
+      <p class="section-eyebrow">{t("materials.eyebrow")}</p>
+      <h2 id="compare-premium-residential-roofing-materials-title">
+        {t("materials.title")}
+      </h2>
+      <div class="section-body">
+        <p>{t("materials.introFirst")}</p>
+        <p>{t("materials.introSecond")}</p>
+      </div>
+      <a class="materials-cta" href={site.estimateHref}>
+        {t("materials.cta")}
+      </a>
+    </div>
+
+    <div class="material-card-grid">
+      {
+        roofingMaterialGuides.map((material) => (
+          <a class="material-card" href={material.href}>
+            <Image
+              class="material-image"
+              src={images[material.image]}
+              width={320}
+              height={157}
+              alt={imageAlts[material.image]}
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="material-card-copy">
+              <strong>{t(material.titleKey)}</strong>
+              <span>{t(material.bodyKey)}</span>
+              <em>{t(material.productsKey)}</em>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .material-guide {
+    min-height: 78.125rem;
+    color: var(--color-on-dark);
+    background: var(--color-brand-navy);
+  }
+
+  .material-container {
+    width: 100%;
+    max-width: 22.5rem;
+    padding: 3.75rem 1.25rem 4.0625rem;
+    margin-inline: auto;
+  }
+
+  .section-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.034375rem;
+    color: var(--color-brand-orange);
+  }
+
+  h2 {
+    max-width: 20rem;
+    margin: 0.975rem 0 0;
+    font-size: 1.875rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-on-dark);
+  }
+
+  .section-body {
+    max-width: 19.875rem;
+    margin-top: 1.425rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.48;
+    color: var(--color-text-on-dark-muted);
+  }
+
+  .section-body p {
+    margin: 0;
+    text-wrap: wrap;
+  }
+
+  .section-body p + p {
+    margin-top: 1.25rem;
+    font-size: 0.859375rem;
+    line-height: 1.51;
+  }
+
+  .materials-cta {
+    display: inline-flex;
+    min-width: 10.25rem;
+    min-height: 2.875rem;
+    margin-top: 2.125rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 900;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    background: var(--color-action);
+    border-radius: var(--radius-button);
+  }
+
+  .materials-cta:hover,
+  .materials-cta:focus-visible {
+    background: var(--color-action-hover);
+  }
+
+  .material-card-grid {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 3.0625rem;
+  }
+
+  .material-card {
+    display: block;
+    height: 20rem;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: var(--color-surface);
+    border-radius: var(--radius-card);
+  }
+
+  .material-image {
+    width: 20rem;
+    height: 9rem;
+    object-fit: cover;
+  }
+
+  .material-card-copy {
+    display: block;
+    padding: 1.125rem 1.125rem 0;
+  }
+
+  .material-card-copy strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-blue);
+  }
+
+  .material-card-copy > span {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+
+  .material-card-copy em {
+    display: block;
+    min-height: 2.625rem;
+    padding: 0.875rem 0.75rem;
+    margin-top: 1.125rem;
+    overflow: hidden;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.22;
+    white-space: nowrap;
+    color: var(--color-brand-blue);
+    background: var(--color-brand-blue-soft);
+    border-radius: var(--radius-button);
+  }
+
+  .material-card:hover,
+  .material-card:focus-visible {
+    box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 22%);
+    transform: translateY(-0.125rem);
+  }
+
+  @media (min-width: 64rem) {
+    .material-guide {
+      min-height: 38.75rem;
+    }
+
+    .material-container {
+      display: grid;
+      grid-template-columns: 36.25rem 36rem;
+      gap: 7.125rem;
+      max-width: 80rem;
+      padding: 0;
+    }
+
+    .material-intro {
+      margin-top: 5.625rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 35rem;
+      margin-top: 1.25rem;
+      font-size: 2.625rem;
+    }
+
+    .section-body {
+      max-width: 33rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .section-body p + p {
+      margin-top: 1.55rem;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .materials-cta {
+      min-width: 10.75rem;
+      min-height: 3.25rem;
+      margin-top: 2.85rem;
+    }
+
+    .material-card-grid {
+      gap: 1.3125rem;
+      margin-top: 5.6875rem;
+    }
+
+    .material-card {
+      position: relative;
+      height: 13.125rem;
+      border-left: 0.5rem solid var(--color-brand-orange);
+    }
+
+    .material-image {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 10.375rem;
+      height: 9.8125rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+    }
+
+    .material-card-copy {
+      width: 21.125rem;
+      padding: 1.625rem 0 0 1.25rem;
+    }
+
+    .material-card-copy strong {
+      font-size: 1.5rem;
+    }
+
+    .material-card-copy > span {
+      margin-top: 1rem;
+      font-size: 0.8125rem;
+      line-height: 1.38;
+    }
+
+    .material-card-copy em {
+      min-height: 2.375rem;
+      padding: 0.75rem 0.875rem;
+      margin-top: 1.39375rem;
+      font-size: 0.6875rem;
+    }
+  }
+</style>

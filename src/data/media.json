@@ -1,0 +1,50 @@
+{
+  "roof-repair-hero": {
+    "assetId": "roof-repair-hero",
+    "status": "pending",
+    "kind": "photo",
+    "alt": "Roofing professional inspecting a damaged roof area",
+    "sourceType": "legacy",
+    "rightsStatus": "needs-review"
+  },
+  "flat-roofing-hero": {
+    "assetId": "flat-roofing-hero",
+    "status": "pending",
+    "kind": "photo",
+    "alt": "Flat and low-slope roofing system with visible drainage details",
+    "sourceType": "legacy",
+    "rightsStatus": "needs-review"
+  },
+  "lutz-service-area-hero": {
+    "assetId": "lutz-service-area-hero",
+    "status": "pending",
+    "kind": "photo",
+    "alt": "Residential roofing representative of the Lutz service area",
+    "sourceType": "needed",
+    "rightsStatus": "needs-review"
+  },
+  "skylight-leak-hero": {
+    "assetId": "skylight-leak-hero",
+    "status": "pending",
+    "kind": "photo",
+    "alt": "Skylight flashing and surrounding roofing material",
+    "sourceType": "legacy",
+    "rightsStatus": "needs-review"
+  },
+  "financing-hero": {
+    "assetId": "financing-hero",
+    "status": "pending",
+    "kind": "illustration",
+    "alt": "Homeowner reviewing roofing project payment options",
+    "sourceType": "needed",
+    "rightsStatus": "needs-review"
+  },
+  "timbersteel-campaign-hero": {
+    "assetId": "timbersteel-campaign-hero",
+    "status": "pending",
+    "kind": "product-photo",
+    "alt": "TimberSteel metal roofing product installed on a home",
+    "sourceType": "manufacturer",
+    "rightsStatus": "needs-review"
+  }
+}

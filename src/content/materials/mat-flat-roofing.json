@@ -1,0 +1,113 @@
+{
+  "contentId": "mat-flat-roofing",
+  "contentType": "material",
+  "routeKey": "material.flat-roofing",
+  "legacyUrls": [
+    "https://www.affordableroofingflorida.com/residential-roof/flat-roofing-tampa/"
+  ],
+  "status": "review",
+  "locale": "en",
+  "title": "Flat and Low-Slope Roofing Systems in Tampa, FL",
+  "owner": "content-team",
+  "lastReviewedAt": "2026-07-17",
+  "reviewAgainAt": "2026-10-17",
+  "seo": {
+    "title": "Flat Roofing Tampa, FL | TPO and Low-Slope Roofing",
+    "description": "Understand flat and low-slope roofing systems, common drainage problems, repair options, and replacement considerations.",
+    "robots": "index,follow",
+    "ogImage": "flat-roofing-hero",
+    "schemaTypes": ["Service", "BreadcrumbList", "FAQPage"]
+  },
+  "hero": {
+    "eyebrow": "Roofing material and system",
+    "heading": "Flat and Low-Slope Roofing Systems in Tampa, FL",
+    "summary": "Compare flat-roofing systems and address ponding, seam failure, heat, and recurring leaks.",
+    "media": "flat-roofing-hero",
+    "primaryCta": {
+      "label": "Request a roof evaluation",
+      "kind": "form",
+      "target": "estimate-request"
+    },
+    "secondaryCta": {
+      "label": "Call (813) 542-8462",
+      "kind": "phone",
+      "target": "tel:+18135428462"
+    }
+  },
+  "faqRefs": ["flat-roof-lifespan"],
+  "testimonialRefs": [],
+  "claimRefs": ["florida-roofing-license"],
+  "materialName": "Flat and Low-Slope Roofing",
+  "materialFamily": "membrane",
+  "roofSlopeCompatibility": ["flat", "low-slope"],
+  "propertyTypes": ["residential", "commercial"],
+  "climateFit": "The system must account for Tampa Bay heat, UV exposure, humidity, wind-driven rain, and drainage.",
+  "commonProblems": [
+    "Ponding water after rainfall",
+    "Recurring leaks at seams or penetrations",
+    "Bubbles, cracks, or trapped moisture",
+    "Heat and UV-related material deterioration"
+  ],
+  "variants": [
+    {
+      "name": "TPO",
+      "summary": "Single-ply membrane commonly selected for reflective performance and welded seams."
+    },
+    {
+      "name": "Modified bitumen",
+      "summary": "Layered asphalt-based system selected for durability and puncture resistance."
+    }
+  ],
+  "advantages": [
+    "Suitable for roof sections where steep-slope materials are not appropriate",
+    "Reflective options can reduce roof-surface heat",
+    "Multiple repair and replacement systems are available"
+  ],
+  "tradeoffs": [
+    "Drainage and installation quality strongly affect performance",
+    "Seams and penetrations require periodic inspection",
+    "Hidden moisture may expand the required scope"
+  ],
+  "serviceRefs": ["svc-roof-repair"],
+  "maintenanceGuidance": [
+    "Inspect drains, scuppers, seams, flashing, and penetrations",
+    "Investigate recurring ponding or interior moisture",
+    "Use compatible repair materials for the existing system"
+  ],
+  "lifespanGuidance": {
+    "summary": "Service life varies by system, drainage, installation, exposure, and maintenance.",
+    "sourceStatus": "needs-reverification"
+  },
+  "costFactors": [
+    "Roof size and access",
+    "Existing system and removal requirements",
+    "Drainage corrections",
+    "Condition of decking and insulation"
+  ],
+  "codeComplianceNotes": {
+    "summary": "Material, attachment, drainage, and installation requirements must be confirmed against the applicable Florida code and permit scope.",
+    "sourceStatus": "needs-reverification"
+  },
+  "comparisonRefs": [],
+  "supplementalSections": [
+    {
+      "type": "comparison",
+      "id": "system-comparison",
+      "heading": "Compare common flat-roofing systems",
+      "columns": ["TPO", "Modified bitumen"],
+      "rows": [
+        {
+          "label": "System type",
+          "values": ["Single-ply membrane", "Layered asphalt-based membrane"]
+        },
+        {
+          "label": "Primary decision factor",
+          "values": [
+            "Seams and reflective surface",
+            "Layering and puncture resistance"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "contentId": "loc-lutz",
+  "contentType": "location",
+  "routeKey": "location.lutz-fl",
+  "legacyUrls": [
+    "https://www.affordableroofingflorida.com/local-roofing-companies/roofers-lutz/"
+  ],
+  "status": "review",
+  "locale": "en",
+  "title": "Roofing Services in Lutz, FL",
+  "owner": "content-team",
+  "lastReviewedAt": "2026-07-17",
+  "reviewAgainAt": "2026-10-17",
+  "seo": {
+    "title": "Roofing Services in Lutz, FL | Affordable Roofing Systems",
+    "description": "Explore roof repair, replacement, inspection, and material options available to property owners in Lutz, Florida.",
+    "robots": "index,follow",
+    "ogImage": "lutz-service-area-hero",
+    "schemaTypes": ["Service", "BreadcrumbList", "FAQPage"]
+  },
+  "hero": {
+    "eyebrow": "Service area",
+    "heading": "Roofing Services in Lutz, FL",
+    "summary": "Connect Lutz property owners with roofing services that match the property, roof system, and observed problem.",
+    "media": "lutz-service-area-hero",
+    "primaryCta": {
+      "label": "Request an estimate in Lutz",
+      "kind": "form",
+      "target": "estimate-request"
+    },
+    "secondaryCta": {
+      "label": "Call (813) 542-8462",
+      "kind": "phone",
+      "target": "tel:+18135428462"
+    }
+  },
+  "faqRefs": ["lutz-service-availability"],
+  "testimonialRefs": [],
+  "claimRefs": ["florida-roofing-license"],
+  "cityName": "Lutz",
+  "countyName": "Hillsborough",
+  "stateCode": "FL",
+  "serviceAreaStatus": "active",
+  "serviceAreaTier": "primary",
+  "localSummary": "Lutz includes a mix of established homes, newer development, and commercial properties whose roof systems require different repair, replacement, drainage, and material decisions.",
+  "availableServiceRefs": ["svc-roof-repair"],
+  "availableMaterialRefs": ["mat-flat-roofing"],
+  "localConditions": [
+    {
+      "title": "Heat and UV exposure",
+      "description": "Year-round exposure can accelerate surface wear, sealant aging, and coating deterioration."
+    },
+    {
+      "title": "Heavy rain and wind",
+      "description": "Drainage, flashing, fasteners, and roof edges require careful inspection after severe weather."
+    },
+    {
+      "title": "Mixed property types",
+      "description": "Steep-slope and low-slope sections require different materials and repair methods."
+    }
+  ],
+  "neighborhoods": [],
+  "localProjectRefs": [],
+  "serviceEvidence": "The business currently identifies Lutz as an active Hillsborough County service area. Operational coverage and project evidence must be reconfirmed before publication.",
+  "evidenceStatus": "needs-reverification",
+  "nearbyLocationRefs": [],
+  "supplementalSections": [
+    {
+      "type": "disclosure",
+      "id": "local-evidence-note",
+      "heading": "Editorial verification required",
+      "body": "Do not publish office, response-time, project, neighborhood, or testimonial claims until the business supplies evidence specific to Lutz."
+    }
+  ]
+}

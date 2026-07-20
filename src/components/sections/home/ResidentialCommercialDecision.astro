@@ -1,0 +1,388 @@
+---
+import { Image } from "astro:assets";
+import decisionCrew from "../../../assets/images/home/decision-crew.webp";
+import decisionDetail from "../../../assets/images/home/decision-detail.webp";
+import decisionMain from "../../../assets/images/home/decision-main.webp";
+import HomePathIcon from "../../icons/HomePathIcon.astro";
+import { decisionPaths } from "../../../data/home";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section
+  id="residential-or-commercial-roofing-guided-clearly"
+  class="roofing-decision"
+  aria-labelledby="residential-or-commercial-roofing-guided-clearly-title"
+  data-ui-id="home.residential-commercial-decision"
+>
+  <div class="roofing-decision-container">
+    <div class="decision-visual">
+      <Image
+        class="decision-main-image"
+        src={decisionMain}
+        width={350}
+        height={330}
+        alt={t("decision.imageAlt")}
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        class="decision-detail-image"
+        src={decisionDetail}
+        width={165}
+        height={155}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        class="decision-crew-image"
+        src={decisionCrew}
+        width={165}
+        height={160}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="experience-stat">
+        <strong>{t("decision.statValue")}</strong>
+        <span>{t("decision.statLabel")}</span>
+      </div>
+    </div>
+
+    <div class="decision-content">
+      <p class="section-eyebrow">{t("decision.eyebrow")}</p>
+      <h2 id="residential-or-commercial-roofing-guided-clearly-title">
+        {t("decision.title")}
+      </h2>
+      <p class="section-body">{t("decision.body")}</p>
+
+      <div class="decision-grid">
+        {
+          decisionPaths.map((item) => (
+            <a
+              class:list={["decision-card", `decision-card--${item.tone}`]}
+              href={item.href}
+            >
+              <span class="decision-icon">
+                <HomePathIcon name={item.icon} />
+              </span>
+              <span class="decision-card-copy">
+                <strong>{t(item.titleKey)}</strong>
+                <span>{t(item.bodyKey)}</span>
+                <em>
+                  {t(item.linkKey)} <span aria-hidden="true">→</span>
+                </em>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .roofing-decision {
+    min-height: 62.5rem;
+    background: var(--color-brand-blue-soft);
+  }
+
+  .roofing-decision-container {
+    width: 100%;
+    max-width: 22.5rem;
+    padding: 2.5rem 1.25rem 3.75rem;
+    margin-inline: auto;
+  }
+
+  .decision-visual {
+    position: relative;
+    width: 20rem;
+    height: 15.9375rem;
+  }
+
+  .decision-main-image {
+    width: 20rem;
+    height: 15.125rem;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+  }
+
+  .decision-detail-image,
+  .decision-crew-image {
+    display: none;
+  }
+
+  .experience-stat {
+    position: absolute;
+    right: 0.9375rem;
+    bottom: -0.9375rem;
+    display: flex;
+    width: 10.3125rem;
+    min-height: 4.0625rem;
+    padding: 0.625rem 0.75rem;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-on-dark);
+    background: var(--color-action);
+    border-radius: var(--radius-button);
+  }
+
+  .experience-stat strong {
+    font-family: var(--font-heading);
+    font-size: 1.875rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .experience-stat span {
+    max-width: 4.375rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .decision-content {
+    margin-top: 2.4375rem;
+  }
+
+  .section-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.028125rem;
+    color: var(--color-action);
+  }
+
+  h2 {
+    max-width: 20rem;
+    margin: 0.625rem 0 0;
+    font-size: 1.875rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-blue);
+  }
+
+  .section-body {
+    max-width: 19.875rem;
+    margin: 0.875rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.48;
+    color: var(--color-text);
+  }
+
+  .decision-grid {
+    display: grid;
+    gap: 1.875rem;
+    margin-top: 1.125rem;
+  }
+
+  .decision-card {
+    display: grid;
+    grid-template-columns: 2.625rem minmax(0, 1fr);
+    gap: 1rem;
+    min-height: 9.25rem;
+    padding: 1.1875rem 1.25rem;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    border-radius: var(--radius-card);
+  }
+
+  .decision-card--navy {
+    background: var(--color-brand-navy);
+  }
+
+  .decision-card--blue {
+    background: var(--color-brand-blue);
+  }
+
+  .decision-icon {
+    display: grid;
+    width: 2.625rem;
+    height: 2.625rem;
+    padding: 0.65625rem;
+    color: var(--color-brand-orange);
+    background: var(--color-surface);
+    border-radius: var(--radius-button);
+    margin-top: 0.1875rem;
+    place-items: center;
+  }
+
+  .decision-card-copy {
+    display: flex;
+    width: 13.125rem;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .decision-card-copy strong {
+    width: 12.8125rem;
+    font-family: var(--font-heading);
+    font-size: 1.1875rem;
+    font-weight: 800;
+    line-height: 1.08;
+  }
+
+  .decision-card-copy > span {
+    margin-top: 0.84375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.36;
+    color: var(--color-brand-blue-soft);
+  }
+
+  .decision-card-copy em {
+    margin-top: 1.2725rem;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .decision-card:hover,
+  .decision-card:focus-visible {
+    box-shadow: 0 0.75rem 1.5rem rgb(4 47 87 / 18%);
+    filter: brightness(1.08);
+  }
+
+  @media (min-width: 64rem) {
+    .roofing-decision {
+      min-height: 32.5rem;
+    }
+
+    .roofing-decision-container {
+      display: grid;
+      grid-template-columns: 36.5625rem 38rem;
+      gap: 5.4375rem;
+      max-width: 80rem;
+      padding: 0;
+    }
+
+    .decision-visual {
+      width: 36.5625rem;
+      height: 23.75rem;
+      margin-top: 5rem;
+      background: var(--color-surface);
+    }
+
+    .decision-main-image {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      width: 21.875rem;
+      height: 20.625rem;
+    }
+
+    .decision-detail-image,
+    .decision-crew-image {
+      position: absolute;
+      right: 1.625rem;
+      display: block;
+      width: 10.3125rem;
+      object-fit: cover;
+      border-radius: var(--radius-card);
+    }
+
+    .decision-detail-image {
+      top: 1.5rem;
+      height: 9.6875rem;
+    }
+
+    .decision-crew-image {
+      bottom: 1.625rem;
+      height: 10rem;
+    }
+
+    .experience-stat {
+      right: 7.8125rem;
+      bottom: 6rem;
+      width: 12.5rem;
+      min-height: 4.375rem;
+      padding: 0.625rem 0.9375rem;
+      gap: 0.8rem;
+    }
+
+    .experience-stat strong {
+      font-size: 2.1875rem;
+    }
+
+    .experience-stat span {
+      font-size: 0.9375rem;
+    }
+
+    .decision-content {
+      margin-top: 3.4375rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 32.5rem;
+      margin-top: 0.9rem;
+      font-size: 2.5rem;
+      line-height: 1.08;
+    }
+
+    .section-body {
+      max-width: 34.375rem;
+      margin-top: 1.1625rem;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .decision-grid {
+      grid-template-columns: repeat(2, 18.25rem);
+      gap: 1.5rem;
+      margin-top: 1.4875rem;
+    }
+
+    .decision-card {
+      display: block;
+      min-height: 9.625rem;
+      padding: 1.5rem;
+    }
+
+    .decision-icon {
+      display: none;
+    }
+
+    .decision-card-copy {
+      display: flex;
+      width: auto;
+      height: 6.625rem;
+    }
+
+    .decision-card-copy strong {
+      width: auto;
+      font-size: 1.375rem;
+    }
+
+    .decision-card-copy > span {
+      margin-top: 0.625rem;
+      font-size: 0.8125rem;
+      line-height: 1.35;
+    }
+
+    .decision-card-copy em {
+      margin-top: auto;
+      font-size: 0.8125rem;
+    }
+
+    .decision-card-copy em span {
+      display: none;
+    }
+  }
+</style>

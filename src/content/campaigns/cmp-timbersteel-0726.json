@@ -1,0 +1,114 @@
+{
+  "contentId": "cmp-timbersteel-0726",
+  "contentType": "campaign",
+  "routeKey": "campaign.timbersteel-0726",
+  "legacyUrls": [
+    "https://www.affordableroofingflorida.com/timbersteel-roof-g-lp-0726/"
+  ],
+  "status": "review",
+  "locale": "en",
+  "title": "GAF TimberSteel Metal Roof Installation in Tampa, FL",
+  "owner": "campaign-team",
+  "lastReviewedAt": "2026-07-17",
+  "reviewAgainAt": "2026-08-17",
+  "seo": {
+    "title": "GAF TimberSteel Metal Roof Installation in Tampa, FL",
+    "description": "Campaign landing page for Tampa-area property owners evaluating a GAF TimberSteel metal roofing system.",
+    "robots": "noindex,follow",
+    "ogImage": "timbersteel-campaign-hero",
+    "schemaTypes": ["WebPage"]
+  },
+  "hero": {
+    "eyebrow": "TimberSteel roofing campaign",
+    "heading": "Explore a TimberSteel Metal Roofing System for Your Tampa Property",
+    "summary": "Review product characteristics, installation considerations, color options, financing pathways, and next steps.",
+    "media": "timbersteel-campaign-hero",
+    "primaryCta": {
+      "label": "Request a TimberSteel estimate",
+      "kind": "form",
+      "target": "estimate-request"
+    },
+    "secondaryCta": {
+      "label": "Call (813) 542-8462",
+      "kind": "phone",
+      "target": "tel:+18135428462"
+    }
+  },
+  "faqRefs": ["timbersteel-campaign-availability"],
+  "testimonialRefs": [],
+  "claimRefs": ["gaf-master-elite", "hearth-financing-terms"],
+  "campaignId": "timbersteel-0726",
+  "campaignName": "TimberSteel Tampa July 2026",
+  "campaignStatus": "active",
+  "startsAt": "2026-07-07",
+  "trafficSources": ["paid-search", "social"],
+  "audience": "Tampa Bay property owners comparing a premium metal roofing system.",
+  "offer": "Request an estimate and product consultation for a TimberSteel roofing project.",
+  "offerTerms": "Availability, product selection, pricing, financing, warranties, and schedule require written confirmation.",
+  "productName": "GAF TimberSteel",
+  "serviceRef": null,
+  "materialRef": null,
+  "locationRefs": ["loc-lutz"],
+  "layoutVariant": "campaign-brand",
+  "navigationMode": "minimal",
+  "footerMode": "legal-only",
+  "formRef": "estimate-request",
+  "thankYouRouteKey": "conversion.estimate-thank-you",
+  "trackingPlan": {
+    "primaryEvent": "generate_lead",
+    "secondaryEvents": ["click_to_call", "form_start"],
+    "allowedParameters": [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content"
+    ]
+  },
+  "expirationAction": "review-and-redirect",
+  "sections": [
+    {
+      "type": "featureList",
+      "id": "timbersteel-benefits",
+      "heading": "Why property owners compare TimberSteel",
+      "items": [
+        {
+          "title": "Metal roofing profile",
+          "description": "A metal system designed to provide the appearance and performance characteristics described by the manufacturer."
+        },
+        {
+          "title": "Product and color choices",
+          "description": "Final availability and specifications must be confirmed for the project."
+        },
+        {
+          "title": "Professional installation",
+          "description": "Scope, substrate, attachment, flashing, ventilation, and code requirements are evaluated before installation."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "id": "timbersteel-process",
+      "heading": "Project process",
+      "steps": [
+        {
+          "title": "Evaluate the property",
+          "description": "Confirm roof geometry, substrate, access, and project constraints."
+        },
+        {
+          "title": "Confirm the system",
+          "description": "Review product, color, scope, warranty, and financing information."
+        },
+        {
+          "title": "Approve written terms",
+          "description": "Proceed only after the final proposal and disclosures are accepted."
+        }
+      ]
+    },
+    {
+      "type": "disclosure",
+      "id": "campaign-disclosure",
+      "heading": "Campaign disclosure",
+      "body": "Product availability, certifications, warranties, financing, code statements, and promotional terms require verification before this campaign is approved for production."
+    }
+  ]
+}

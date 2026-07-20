@@ -1,0 +1,62 @@
+{
+  "contentId": "post-skylight-leak-repair",
+  "contentType": "post",
+  "routeKey": "post.skylight-leak-repair-tampa",
+  "legacyUrls": [
+    "https://www.affordableroofingflorida.com/learn/skylight-leak-repair-tampa/"
+  ],
+  "status": "review",
+  "locale": "en",
+  "title": "Skylight Leak Repair in Tampa",
+  "owner": "editorial-team",
+  "lastReviewedAt": "2026-07-17",
+  "reviewAgainAt": "2026-10-17",
+  "seo": {
+    "title": "Skylight Leak Repair in Tampa | Causes, Costs and Timing",
+    "description": "Learn common causes of skylight leaks, what affects repair cost and timing, and how to limit interior water damage.",
+    "robots": "index,follow",
+    "ogImage": "skylight-leak-hero",
+    "schemaTypes": ["Article", "BreadcrumbList"]
+  },
+  "hero": {
+    "eyebrow": "Roof repair guide",
+    "heading": "Skylight Leak Repair in Tampa: Causes, Costs and Next Steps",
+    "summary": "Understand why skylights leak, what to inspect, and when roof or flashing repair may be required.",
+    "media": "skylight-leak-hero",
+    "primaryCta": {
+      "label": "Request a leak inspection",
+      "kind": "form",
+      "target": "estimate-request"
+    }
+  },
+  "faqRefs": [],
+  "testimonialRefs": [],
+  "claimRefs": [],
+  "headline": "Skylight Leak Repair in Tampa: Causes, Costs and Next Steps",
+  "dek": "A practical guide to common leak sources, damage signals, repair scope, and questions to ask before work begins.",
+  "authorRef": "ars-editorial-team",
+  "publishedAt": "2025-12-10",
+  "updatedAt": "2026-07-17",
+  "reviewedAt": "2026-07-17",
+  "reviewerRef": "ars-editorial-team",
+  "category": "roof-repair",
+  "tags": ["skylights", "leaks", "tampa"],
+  "heroMedia": "skylight-leak-hero",
+  "body": "## Quick skylight leak checklist\n\nLook for ceiling stains, bubbling paint, moisture between panes, damaged flashing, musty odors, and soft material around the skylight curb.\n\n## What causes skylight leaks\n\nCommon causes include failed sealant, damaged or incorrectly integrated flashing, storm debris, condensation, drainage problems, and deterioration in adjacent roofing materials.\n\n## What affects repair scope and cost\n\nThe final scope depends on access, the skylight assembly, flashing condition, adjacent roofing, concealed moisture, and whether replacement is required. Any numeric cost range must be reverified before publication.\n\n## What to do next\n\nProtect the interior where it is safe to do so, document visible damage, avoid temporary work that could conceal the source, and arrange an inspection of the skylight and surrounding roof system.",
+  "citations": [
+    {
+      "label": "Legacy source page",
+      "url": "https://www.affordableroofingflorida.com/learn/skylight-leak-repair-tampa/",
+      "status": "source-only"
+    }
+  ],
+  "relatedServiceRefs": ["svc-roof-repair"],
+  "relatedMaterialRefs": [],
+  "relatedLocationRefs": ["loc-lutz"],
+  "relatedPostRefs": [],
+  "articleCta": {
+    "label": "Request a leak inspection",
+    "kind": "form",
+    "target": "estimate-request"
+  }
+}

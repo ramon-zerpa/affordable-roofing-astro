@@ -1,0 +1,365 @@
+---
+import { Image } from "astro:assets";
+import financingImage from "../../../assets/images/home/financing.webp";
+import { homeReviews } from "../../../data/home";
+import { site } from "../../../data/site";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section
+  id="save-time-and-money-with-a-top-rated-roofing-service"
+  class="reviews-financing"
+  aria-labelledby="save-time-and-money-with-a-top-rated-roofing-service-title"
+  data-ui-id="home.reviews-financing"
+>
+  <div class="reviews-financing-container">
+    <div class="reviews-column">
+      <p class="section-eyebrow">{t("reviews.eyebrow")}</p>
+      <h2 id="save-time-and-money-with-a-top-rated-roofing-service-title">
+        {t("reviews.title")}
+      </h2>
+      <p class="section-body">{t("reviews.body")}</p>
+
+      <div class="review-grid">
+        {
+          homeReviews.map((review) => (
+            <article class="review-card">
+              <p class="review-stars" aria-label={t("reviews.starsLabel")}>
+                <span aria-hidden="true">★★★★★</span>
+              </p>
+              <blockquote>{t(review.quoteKey)}</blockquote>
+              <p class="review-name">{t(review.nameKey)}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="financing-column">
+      <aside class="financing-panel" aria-labelledby="financing-panel-title">
+        <div class="financing-copy">
+          <p class="section-eyebrow">{t("financing.eyebrow")}</p>
+          <h3 id="financing-panel-title">{t("financing.title")}</h3>
+          <p>{t("financing.body")}</p>
+          <a class="financing-link" href="/financing/">
+            {t("financing.link")}
+          </a>
+        </div>
+        <Image
+          class="financing-image"
+          src={financingImage}
+          width={120}
+          height={156}
+          alt={t("financing.imageAlt")}
+          loading="lazy"
+          decoding="async"
+        />
+      </aside>
+
+      <div class="contact-band">
+        <strong>{t("reviews.contactCta")}</strong>
+        <a href={site.estimateHref}>{t("site.estimateShort")}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews-financing {
+    min-height: 82.5rem;
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .reviews-financing-container {
+    width: 100%;
+    max-width: 22.5rem;
+    padding: 2.625rem 1.25rem 0;
+    margin-inline: auto;
+  }
+
+  .section-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.0375rem;
+    color: var(--color-action);
+  }
+
+  h2 {
+    max-width: 20rem;
+    margin: 0.625rem 0 0;
+    font-size: 1.625rem;
+    font-weight: 800;
+    line-height: 1.75rem;
+    color: var(--color-brand-blue);
+  }
+
+  .section-body {
+    max-width: 19.75rem;
+    margin: 1.5rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  .review-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+  }
+
+  .review-card {
+    display: flex;
+    min-height: 9.125rem;
+    padding: 1.25rem;
+    flex-direction: column;
+    color: var(--color-on-dark);
+    background: var(--color-brand-navy);
+    border-radius: var(--radius-card);
+  }
+
+  .review-stars,
+  .review-name {
+    margin: 0;
+  }
+
+  .review-stars {
+    font-size: 0.9375rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.0625rem;
+    color: var(--color-brand-orange);
+  }
+
+  blockquote {
+    margin: 0.9375rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.38;
+  }
+
+  .review-name {
+    margin-top: auto;
+    font-size: 0.8125rem;
+    font-weight: 900;
+    color: var(--color-text-on-dark-muted);
+  }
+
+  .financing-column {
+    margin-top: 3.25rem;
+  }
+
+  .financing-panel {
+    min-height: 16.375rem;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-brand-orange);
+    border-radius: var(--radius-card);
+  }
+
+  .financing-copy h3 {
+    max-width: 17.5rem;
+    margin: 0.625rem 0 0;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-blue);
+  }
+
+  .financing-copy > p:last-of-type {
+    max-width: 16.875rem;
+    margin: 0.875rem 0 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+
+  .financing-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 10.875rem;
+    min-height: 2.625rem;
+    margin-top: 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 900;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    background: var(--color-action);
+    border-radius: var(--radius-button);
+  }
+
+  .financing-image {
+    display: none;
+  }
+
+  .contact-band {
+    display: flex;
+    width: auto;
+    height: 10rem;
+    min-height: 10rem;
+    padding: 1.625rem 1.25rem;
+    margin-top: 3.625rem;
+    margin-inline: -1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--color-on-dark);
+    background: var(--color-action);
+  }
+
+  .contact-band strong {
+    max-width: 19.375rem;
+    font-family: var(--font-heading);
+    font-size: 1.1875rem;
+    font-weight: 900;
+    line-height: 1.12;
+  }
+
+  .contact-band a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 9.875rem;
+    min-height: 2.75rem;
+    margin-top: 1.375rem;
+    font-size: 0.8125rem;
+    font-weight: 900;
+    color: var(--color-action);
+    text-decoration: none;
+    background: var(--color-surface);
+    border-radius: var(--radius-button);
+  }
+
+  .financing-link:hover,
+  .financing-link:focus-visible,
+  .contact-band a:hover,
+  .contact-band a:focus-visible {
+    filter: brightness(0.92);
+  }
+
+  @media (min-width: 64rem) {
+    .reviews-financing {
+      min-height: 31.5625rem;
+    }
+
+    .reviews-financing-container {
+      display: grid;
+      grid-template-columns: 43.125rem 32.5rem;
+      gap: 4.375rem;
+      max-width: 80rem;
+      padding: 3.75rem 0 4.8125rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 28.75rem;
+      margin-top: 0.625rem;
+      font-size: 2.125rem;
+      line-height: 1.1;
+    }
+
+    .section-body {
+      max-width: 28.75rem;
+      margin-top: 0.725rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    .review-grid {
+      grid-template-columns: repeat(3, 13.375rem);
+      gap: 1.5rem;
+      margin-top: 1.53125rem;
+    }
+
+    .review-card {
+      min-height: 10.25rem;
+      padding: 1.25rem;
+    }
+
+    blockquote {
+      font-size: 0.8125rem;
+      line-height: 1.35;
+    }
+
+    .financing-column {
+      margin-top: 0;
+    }
+
+    .financing-panel {
+      position: relative;
+      height: 16.25rem;
+      min-height: 0;
+      padding: 1.5625rem;
+    }
+
+    .financing-copy h3 {
+      max-width: 20rem;
+      font-size: 1.5625rem;
+      line-height: 1.1;
+    }
+
+    .financing-copy > p:last-of-type {
+      max-width: 20.5625rem;
+      margin-top: 0.875rem;
+      font-size: 0.875rem;
+    }
+
+    .financing-link {
+      min-width: 10rem;
+      margin-top: 0.875rem;
+      font-size: 0.875rem;
+    }
+
+    .financing-image {
+      position: absolute;
+      top: 1.3125rem;
+      right: 1.25rem;
+      display: block;
+      width: 7.5rem;
+      height: 9.75rem;
+      object-fit: cover;
+      border-radius: var(--radius-button);
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      width: 100%;
+      height: 5.125rem;
+      min-height: 5.125rem;
+      padding: 0.9375rem 1rem 0.9375rem 1.875rem;
+      margin: 1.5625rem 0 0;
+      align-items: center;
+      gap: 1.5rem;
+      border-radius: var(--radius-card);
+    }
+
+    .contact-band strong {
+      max-width: 17.25rem;
+      font-size: 1.125rem;
+    }
+
+    .contact-band a {
+      min-width: 8.375rem;
+      min-height: 2.625rem;
+      margin-top: 0;
+    }
+  }
+</style>

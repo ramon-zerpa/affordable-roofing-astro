@@ -1,0 +1,50 @@
+{
+  "roof-repair-cost": {
+    "faqId": "roof-repair-cost",
+    "question": "What affects the cost of a roof repair?",
+    "answer": "Roof type, access, the affected area, required materials, and concealed moisture or structural damage can change the final scope.",
+    "topics": ["roof-repair", "cost"],
+    "status": "review",
+    "lastReviewedAt": "2026-07-17"
+  },
+  "florida-roof-repair-rule": {
+    "faqId": "florida-roof-repair-rule",
+    "question": "Can Florida code requirements affect a repair?",
+    "answer": "Code and permit requirements depend on the jurisdiction, roof section, project scope, and current rules. The applicable requirement must be confirmed for the specific project.",
+    "topics": ["roof-repair", "code"],
+    "status": "needs-reverification",
+    "lastReviewedAt": "2026-07-17"
+  },
+  "flat-roof-lifespan": {
+    "faqId": "flat-roof-lifespan",
+    "question": "How long does a flat roof last?",
+    "answer": "Service life varies by material, installation, drainage, exposure, maintenance, and previous repairs. An inspection is required to assess an existing system.",
+    "topics": ["flat-roofing", "maintenance"],
+    "status": "review",
+    "lastReviewedAt": "2026-07-17"
+  },
+  "lutz-service-availability": {
+    "faqId": "lutz-service-availability",
+    "question": "Which roofing services are available in Lutz?",
+    "answer": "The current service scope must be confirmed with the business before publication. The content model supports repair, replacement, inspection, installation, and maintenance relationships.",
+    "topics": ["lutz", "service-area"],
+    "status": "needs-reverification",
+    "lastReviewedAt": "2026-07-17"
+  },
+  "financing-approval": {
+    "faqId": "financing-approval",
+    "question": "Does requesting financing guarantee approval?",
+    "answer": "No. Eligibility, approval, rates, fees, loan amounts, and repayment terms are determined by the financing provider under its current criteria.",
+    "topics": ["financing"],
+    "status": "review",
+    "lastReviewedAt": "2026-07-17"
+  },
+  "timbersteel-campaign-availability": {
+    "faqId": "timbersteel-campaign-availability",
+    "question": "Is TimberSteel available for every property?",
+    "answer": "Product availability and suitability depend on the property, roof design, project scope, manufacturer availability, and applicable requirements.",
+    "topics": ["timbersteel", "campaign"],
+    "status": "needs-reverification",
+    "lastReviewedAt": "2026-07-17"
+  }
+}

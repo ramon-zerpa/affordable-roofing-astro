@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# This scaffold must not be indexed. Replace during the SEO launch phase.

@@ -1,0 +1,102 @@
+{
+  "contentId": "page-financing",
+  "contentType": "page",
+  "routeKey": "page.financing",
+  "legacyUrls": ["https://www.affordableroofingflorida.com/financing/"],
+  "status": "review",
+  "locale": "en",
+  "title": "Roof Financing Options",
+  "owner": "content-team",
+  "lastReviewedAt": "2026-07-17",
+  "reviewAgainAt": "2026-08-17",
+  "seo": {
+    "title": "Roof Financing Options | Affordable Roofing Systems",
+    "description": "Review available roof-financing pathways, application steps, and disclosures before choosing a payment option.",
+    "robots": "index,follow",
+    "ogImage": "financing-hero",
+    "schemaTypes": ["WebPage", "BreadcrumbList", "FAQPage"]
+  },
+  "hero": {
+    "eyebrow": "Payment options",
+    "heading": "Roof Financing Options",
+    "summary": "Explore payment pathways for an eligible roofing project and review current terms with the financing provider.",
+    "media": "financing-hero",
+    "primaryCta": {
+      "label": "Review financing options",
+      "kind": "external",
+      "target": "https://app.gethearth.com/"
+    },
+    "secondaryCta": {
+      "label": "Request a roofing estimate",
+      "kind": "form",
+      "target": "estimate-request"
+    }
+  },
+  "faqRefs": ["financing-approval"],
+  "testimonialRefs": [],
+  "claimRefs": ["hearth-financing-terms"],
+  "pageSubtype": "financing",
+  "pagePurpose": "Explain financing pathways and send eligible visitors to an approved external application without promising rates or approval.",
+  "intro": "Roofing work can be a significant expense. Financing may help distribute eligible project costs over time, subject to lender review and current terms.",
+  "sections": [
+    {
+      "type": "featureList",
+      "id": "financing-pathways",
+      "heading": "Available financing pathways",
+      "items": [
+        {
+          "title": "Hearth",
+          "description": "Review personalized options through the provider's application experience."
+        },
+        {
+          "title": "Other payment sources",
+          "description": "Homeowners may also compare personal credit, home-equity, or insurer-related options with qualified financial advisers."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "id": "financing-process",
+      "heading": "How the process works",
+      "steps": [
+        {
+          "title": "Estimate the roofing scope",
+          "description": "Understand the proposed roofing work before comparing payment options."
+        },
+        {
+          "title": "Review provider terms",
+          "description": "Check current eligibility, rates, fees, and repayment terms directly with the provider."
+        },
+        {
+          "title": "Choose independently",
+          "description": "Select a payment method only after reviewing the complete agreement."
+        }
+      ]
+    },
+    {
+      "type": "disclosure",
+      "id": "financing-disclosure",
+      "heading": "Financing disclosure",
+      "body": "Financing is subject to third-party approval and current provider terms. Affordable Roofing Systems does not guarantee approval, rates, loan amounts, or repayment periods."
+    }
+  ],
+  "primaryCta": {
+    "label": "Review financing options",
+    "kind": "external",
+    "target": "https://app.gethearth.com/"
+  },
+  "financing": {
+    "programs": [
+      {
+        "name": "Hearth",
+        "applicationUrl": "https://app.gethearth.com/",
+        "status": "needs-reverification"
+      }
+    ],
+    "eligibilitySummary": "Eligibility and available offers are determined by the financing provider.",
+    "disclosures": [
+      "Rates, loan amounts, fees, and terms must be verified with the provider before publication.",
+      "The roofing contractor does not make credit decisions."
+    ]
+  }
+}

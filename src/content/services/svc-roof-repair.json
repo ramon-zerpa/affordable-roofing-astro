@@ -1,0 +1,126 @@
+{
+  "contentId": "svc-roof-repair",
+  "contentType": "service",
+  "routeKey": "service.roof-repair",
+  "legacyUrls": [
+    "https://www.affordableroofingflorida.com/affordable-roofing-services/roof-repair/"
+  ],
+  "status": "review",
+  "locale": "en",
+  "title": "Roof Repair in Tampa, FL",
+  "owner": "content-team",
+  "lastReviewedAt": "2026-07-17",
+  "reviewAgainAt": "2026-10-17",
+  "seo": {
+    "title": "Roof Repair in Tampa, FL | Local Roof Repair Experts",
+    "description": "Get targeted roof repair for shingle, tile, metal, and flat roofing systems in the Tampa Bay area.",
+    "robots": "index,follow",
+    "ogImage": "roof-repair-hero",
+    "schemaTypes": ["Service", "BreadcrumbList", "FAQPage"]
+  },
+  "hero": {
+    "eyebrow": "Roofing service",
+    "heading": "Roof Repair in Tampa, FL",
+    "summary": "Identify and repair localized roof damage before it develops into a larger problem.",
+    "media": "roof-repair-hero",
+    "primaryCta": {
+      "label": "Request a free estimate",
+      "kind": "form",
+      "target": "estimate-request"
+    },
+    "secondaryCta": {
+      "label": "Call (813) 542-8462",
+      "kind": "phone",
+      "target": "tel:+18135428462"
+    }
+  },
+  "faqRefs": ["roof-repair-cost", "florida-roof-repair-rule"],
+  "testimonialRefs": ["susan-c-roof-repair"],
+  "claimRefs": ["florida-roofing-license", "gaf-master-elite"],
+  "serviceName": "Roof Repair",
+  "serviceCategory": "repair",
+  "audience": "both",
+  "customerProblems": [
+    "Missing, cracked, or lifted shingles",
+    "Damaged flashing around roof penetrations",
+    "Localized storm or debris damage",
+    "Ceiling stains or attic moisture"
+  ],
+  "outcomes": [
+    "Locate the underlying source of damage",
+    "Restore weather protection in the affected area",
+    "Provide a documented repair recommendation"
+  ],
+  "includedWork": [
+    "Roof condition assessment and photo documentation",
+    "Repair plan with scope, materials, and timeline",
+    "Localized repairs for compatible roofing systems",
+    "Cleanup and final review"
+  ],
+  "excludedWork": [
+    "Insurance coverage decisions",
+    "Guarantees that an aging roof can always be repaired"
+  ],
+  "repairVsReplace": {
+    "repairWhen": [
+      "Damage is isolated and the surrounding system remains serviceable",
+      "Flashing, sealant, or a small material section has failed"
+    ],
+    "replaceWhen": [
+      "Damage affects multiple areas or repeatedly returns",
+      "Decking or the broader roofing system is compromised"
+    ]
+  },
+  "supportedMaterialRefs": ["mat-flat-roofing"],
+  "processSteps": [
+    {
+      "title": "Inspect and document",
+      "description": "Assess the system and document visible problem areas."
+    },
+    {
+      "title": "Prepare the repair plan",
+      "description": "Explain the recommended scope, materials, and timeline."
+    },
+    {
+      "title": "Complete the repair",
+      "description": "Perform the approved work and protect adjacent areas."
+    },
+    {
+      "title": "Review the result",
+      "description": "Complete cleanup, review the work, and record future recommendations."
+    }
+  ],
+  "timingGuidance": {
+    "summary": "Many localized repairs can be completed in a day, depending on weather, access, and hidden damage.",
+    "sourceStatus": "needs-reverification"
+  },
+  "costGuidance": {
+    "summary": "Cost depends on roof type, access, affected area, and concealed moisture or structural damage.",
+    "sourceStatus": "needs-reverification"
+  },
+  "insuranceGuidance": "Coverage is determined by the policy and insurer. The contractor may document observed damage but does not decide coverage.",
+  "financingPageRef": "page-financing",
+  "availableLocationRefs": ["loc-lutz"],
+  "relatedPostRefs": ["post-skylight-leak-repair"],
+  "supplementalSections": [
+    {
+      "type": "featureList",
+      "id": "materials-repaired",
+      "heading": "Roofing systems we inspect and repair",
+      "items": [
+        {
+          "title": "Shingle roofs",
+          "description": "Localized shingle, flashing, and sealant repairs."
+        },
+        {
+          "title": "Metal and tile roofs",
+          "description": "Material-specific repair recommendations after inspection."
+        },
+        {
+          "title": "Flat and low-slope roofs",
+          "description": "Membrane, penetration, and drainage-related repairs."
+        }
+      ]
+    }
+  ]
+}

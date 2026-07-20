@@ -1,0 +1,213 @@
+---
+import { Image } from "astro:assets";
+import commercialAuthorized from "../../../assets/images/home/gaf-commercial-authorized-icon.png";
+import masterElite from "../../../assets/images/home/gaf-master-elite-icon.png";
+import metalCertified from "../../../assets/images/home/gaf-metal-certified-icon.png";
+import presidentClub from "../../../assets/images/home/gaf-president-club-icon.png";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const certifications = [
+  {
+    key: "president",
+    src: presidentClub,
+    alt: t("topThree.presidentAlt"),
+  },
+  {
+    key: "master-elite",
+    src: masterElite,
+    alt: t("topThree.masterEliteAlt"),
+  },
+  {
+    key: "commercial",
+    src: commercialAuthorized,
+    alt: t("topThree.commercialAlt"),
+  },
+  {
+    key: "metal",
+    src: metalCertified,
+    alt: t("topThree.metalAlt"),
+  },
+] as const;
+---
+
+<section
+  id="among-the-top-3-percent-of-roofers-nationwide"
+  class="top-three"
+  aria-labelledby="among-the-top-3-percent-of-roofers-nationwide-title"
+  data-ui-id="home.top-three-percent"
+>
+  <div class="top-three-container">
+    <div class="top-three-copy">
+      <p class="section-eyebrow">{t("topThree.eyebrow")}</p>
+      <h2 id="among-the-top-3-percent-of-roofers-nationwide-title">
+        {t("topThree.title")}
+      </h2>
+      <p class="section-body">{t("topThree.body")}</p>
+    </div>
+
+    <div class="certification-logos" aria-label={t("topThree.eyebrow")}>
+      {
+        certifications.map((certification) => (
+          <div
+            class:list={[
+              "certification-logo",
+              `certification-logo--${certification.key}`,
+            ]}
+          >
+            <Image
+              src={certification.src}
+              width={160}
+              height={160}
+              alt={certification.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .top-three {
+    min-height: 45rem;
+    background: var(--color-surface);
+  }
+
+  .top-three-container {
+    position: relative;
+    width: 100%;
+    max-width: 22.5rem;
+    min-height: 45rem;
+    padding: 3.125rem 1.25rem 2.75rem;
+    margin-inline: auto;
+  }
+
+  .section-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.034375rem;
+    color: var(--color-brand-orange);
+  }
+
+  h2 {
+    max-width: 20rem;
+    margin: 0.9375rem 0 0;
+    font-size: 1.875rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-blue);
+  }
+
+  .section-body {
+    max-width: 19.375rem;
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.48;
+    color: var(--color-text);
+  }
+
+  .certification-logos {
+    display: grid;
+    grid-template-columns: repeat(2, 9.625rem);
+    gap: 1.1875rem 0.6875rem;
+    margin-top: 2.1875rem;
+  }
+
+  .certification-logo {
+    display: grid;
+    width: 9.625rem;
+    height: 7.875rem;
+    place-items: start center;
+  }
+
+  .certification-logo img {
+    width: 7.375rem;
+    height: 7.375rem;
+    object-fit: contain;
+  }
+
+  @media (min-width: 64rem) {
+    .top-three {
+      min-height: 30.625rem;
+    }
+
+    .top-three-container {
+      max-width: 80rem;
+      min-height: 30.625rem;
+      padding: 5.3125rem 0 0;
+    }
+
+    .top-three-copy {
+      width: 38.125rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 37.5rem;
+      margin-top: 1.5rem;
+      font-size: 2.5rem;
+    }
+
+    .section-body {
+      max-width: 38.125rem;
+      margin-top: 1.6rem;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .certification-logos {
+      position: absolute;
+      inset: 0;
+      display: block;
+      margin: 0;
+    }
+
+    .certification-logo {
+      position: absolute;
+      width: 10rem;
+      height: 10rem;
+    }
+
+    .certification-logo img {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    .certification-logo--president {
+      top: 6.875rem;
+      left: 47.1875rem;
+    }
+
+    .certification-logo--master-elite {
+      top: 5.3125rem;
+      left: 59.6875rem;
+    }
+
+    .certification-logo--commercial {
+      top: 13.75rem;
+      left: 54.375rem;
+    }
+
+    .certification-logo--metal {
+      top: 12.1875rem;
+      left: 66.875rem;
+    }
+  }
+</style>

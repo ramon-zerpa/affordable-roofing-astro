@@ -1,0 +1,502 @@
+---
+import { accreditationSlides } from "../../../data/home";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section
+  id="accredited-and-certified-by-major-roofing-manufacturers"
+  class="accredited-certified"
+  aria-labelledby="accredited-and-certified-by-major-roofing-manufacturers-title"
+  data-ui-id="home.accredited-certified"
+>
+  <div class="accredited-container">
+    <div class="accredited-copy">
+      <p class="section-eyebrow">{t("accreditation.eyebrow")}</p>
+      <h2 id="accredited-and-certified-by-major-roofing-manufacturers-title">
+        {t("accreditation.title")}
+      </h2>
+      <p class="section-body">{t("accreditation.intro")}</p>
+    </div>
+
+    <div
+      class="certification-slider"
+      data-certification-slider
+      aria-label={t("accreditation.sliderLabel")}
+    >
+      <div
+        id="certification-slides"
+        class="certification-viewport"
+        data-slider-viewport
+        tabindex="0"
+      >
+        <div class="certification-track">
+          {
+            accreditationSlides.map((cards, slideIndex) => (
+              <div
+                class="certification-slide"
+                data-certification-slide
+                role="group"
+                aria-label={`${t("accreditation.slideLabel")} ${slideIndex + 1} / ${accreditationSlides.length}`}
+              >
+                {cards.map((card) => (
+                  <article class="certification-card">
+                    <span
+                      class:list={[
+                        "certification-logo",
+                        `certification-logo--${card.logo}`,
+                      ]}
+                      aria-hidden="true"
+                    />
+                    <h3>{t(card.titleKey)}</h3>
+                    <p>{t(card.bodyKey)}</p>
+                  </article>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button
+          class="slider-button"
+          type="button"
+          data-slider-previous
+          aria-label={t("accreditation.previous")}
+          aria-controls="certification-slides"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <span class="slider-status" data-slider-status aria-live="polite">
+          <span data-current-slide>1</span>
+          <span aria-hidden="true"> / </span>
+          <span class="sr-only">of</span>
+          <span>{accreditationSlides.length}</span>
+        </span>
+        <button
+          class="slider-button"
+          type="button"
+          data-slider-next
+          aria-label={t("accreditation.next")}
+          aria-controls="certification-slides"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-certification-slider]")
+    .forEach((slider) => {
+      const viewport = slider.querySelector<HTMLElement>(
+        "[data-slider-viewport]",
+      );
+      const slides = slider.querySelectorAll<HTMLElement>(
+        "[data-certification-slide]",
+      );
+      const previous = slider.querySelector<HTMLButtonElement>(
+        "[data-slider-previous]",
+      );
+      const next =
+        slider.querySelector<HTMLButtonElement>("[data-slider-next]");
+      const current = slider.querySelector<HTMLElement>("[data-current-slide]");
+
+      if (!viewport || !slides.length || !previous || !next || !current) return;
+
+      slider.dataset.sliderReady = "true";
+      let activeIndex = 0;
+      let scrollFrame = 0;
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+
+      const updateControls = (index: number) => {
+        activeIndex = Math.min(Math.max(index, 0), slides.length - 1);
+        previous.disabled = activeIndex === 0;
+        next.disabled = activeIndex === slides.length - 1;
+        current.textContent = String(activeIndex + 1);
+      };
+
+      const getSlideOffset = (index: number) => {
+        const slide = slides[index];
+        const viewportPadding = Number.parseFloat(
+          window.getComputedStyle(viewport).paddingInlineStart,
+        );
+        return slide ? Math.max(0, slide.offsetLeft - viewportPadding) : 0;
+      };
+
+      const goToSlide = (index: number) => {
+        const target = Math.min(Math.max(index, 0), slides.length - 1);
+        viewport.scrollTo({
+          left: getSlideOffset(target),
+          behavior: reducedMotion.matches ? "auto" : "smooth",
+        });
+        updateControls(target);
+      };
+
+      previous.addEventListener("click", () => goToSlide(activeIndex - 1));
+      next.addEventListener("click", () => goToSlide(activeIndex + 1));
+
+      viewport.addEventListener(
+        "scroll",
+        () => {
+          cancelAnimationFrame(scrollFrame);
+          scrollFrame = requestAnimationFrame(() => {
+            const offsets = Array.from(slides, (_, index) =>
+              getSlideOffset(index),
+            );
+            const index = offsets.reduce(
+              (nearest, offset, index) =>
+                Math.abs(offset - viewport.scrollLeft) <
+                Math.abs((offsets[nearest] ?? 0) - viewport.scrollLeft)
+                  ? index
+                  : nearest,
+              0,
+            );
+            updateControls(index);
+          });
+        },
+        { passive: true },
+      );
+
+      new ResizeObserver(() => {
+        viewport.scrollLeft = getSlideOffset(activeIndex);
+      }).observe(viewport);
+    });
+</script>
+
+<style>
+  .accredited-certified {
+    min-height: 74.375rem;
+    background: var(--color-surface-muted);
+  }
+
+  .accredited-container {
+    width: 100%;
+    max-width: 22.5rem;
+    min-height: 74.375rem;
+    padding: 3.125rem 1.25rem 3.5rem;
+    margin-inline: auto;
+  }
+
+  .section-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.034375rem;
+    color: var(--color-brand-orange);
+  }
+
+  h2 {
+    max-width: 20rem;
+    margin: 0.6875rem 0 0;
+    font-size: 1.8125rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-blue);
+  }
+
+  .section-body {
+    max-width: 19.875rem;
+    margin: 0.8125rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.48;
+    color: var(--color-text);
+  }
+
+  .certification-slider {
+    --shadow-gutter: 1.25rem;
+
+    margin-top: 2.25rem;
+  }
+
+  .certification-viewport {
+    width: calc(100% + var(--shadow-gutter) + var(--shadow-gutter));
+    padding: var(--shadow-gutter);
+    margin-top: calc(-1 * var(--shadow-gutter));
+    margin-inline: calc(-1 * var(--shadow-gutter));
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: var(--shadow-gutter);
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  .certification-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .certification-track {
+    display: flex;
+    gap: calc(var(--shadow-gutter) + var(--shadow-gutter));
+  }
+
+  .certification-track::after {
+    flex: 0 0 var(--shadow-gutter);
+    margin-left: calc(0rem - var(--shadow-gutter) - var(--shadow-gutter));
+    content: "";
+  }
+
+  .certification-slide {
+    display: grid;
+    flex: 0 0 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .certification-card {
+    position: relative;
+    height: 6.875rem;
+    padding: 1.125rem 1.125rem 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 0.375rem 0.875rem rgb(0 0 0 / 6%);
+  }
+
+  .certification-logo {
+    display: none;
+  }
+
+  .certification-card h3 {
+    width: 16.875rem;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--color-brand-blue);
+  }
+
+  .certification-card p {
+    width: 16.875rem;
+    margin: 0.5625rem 0 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.32;
+    color: var(--color-text);
+  }
+
+  .slider-controls {
+    display: flex;
+    height: 2rem;
+    margin-top: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .slider-button {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    place-items: center;
+    color: var(--color-on-dark);
+    cursor: pointer;
+    background: var(--color-brand-blue);
+    border: 0;
+    border-radius: 50%;
+  }
+
+  .slider-button:disabled {
+    color: var(--color-text-muted);
+    cursor: default;
+    background: var(--color-border);
+  }
+
+  .slider-button svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.25;
+  }
+
+  .slider-status {
+    min-width: 2.5rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--color-brand-blue);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (min-width: 64rem) {
+    .accredited-certified {
+      min-height: 51rem;
+    }
+
+    .accredited-container {
+      max-width: 80rem;
+      min-height: 51rem;
+      padding: 5.625rem 0 3rem;
+    }
+
+    .accredited-copy {
+      width: 41.875rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 41.875rem;
+      margin-top: 1.2125rem;
+      font-size: 2.375rem;
+    }
+
+    .section-body {
+      max-width: 41.25rem;
+      margin-top: 1.68rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+
+    .certification-slider {
+      --shadow-gutter: 1.5rem;
+
+      margin-top: 4.375rem;
+    }
+
+    .certification-slide {
+      grid-template-columns: repeat(3, 25.625rem);
+      gap: 1.5rem 1.5625rem;
+    }
+
+    .certification-card {
+      height: 9.25rem;
+      padding: 4.1875rem 1.5rem 0;
+      box-shadow: 0 0.5rem 1.125rem rgb(0 0 0 / 7%);
+    }
+
+    .certification-logo {
+      position: absolute;
+      top: 1.3125rem;
+      left: 1.5rem;
+      display: block;
+      height: 2.375rem;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: contain;
+    }
+
+    .certification-logo--bbb {
+      width: 3.9375rem;
+      background-image: url("../../../assets/images/home/certifications/bbb.webp");
+    }
+
+    .certification-logo--angi {
+      width: 3.9375rem;
+      background-image: url("../../../assets/images/home/certifications/angi.webp");
+    }
+
+    .certification-logo--five-star {
+      width: 9.25rem;
+      background-image: url("../../../assets/images/home/certifications/five-star.webp");
+    }
+
+    .certification-logo--gaf-presidents-club {
+      width: 2.375rem;
+      background-image: url("../../../assets/images/home/certifications/gaf-presidents-club.webp");
+    }
+
+    .certification-logo--gaf-master-elite {
+      width: 6.5rem;
+      background-image: url("../../../assets/images/home/certifications/gaf-master-elite.webp");
+    }
+
+    .certification-logo--gaf-master-select {
+      width: 3.9375rem;
+      background-image: url("../../../assets/images/home/certifications/gaf-master-select.webp");
+    }
+
+    .certification-logo--gaf-installation {
+      width: 5.25rem;
+      background-image: url("../../../assets/images/home/certifications/gaf-install.webp");
+    }
+
+    .certification-logo--gaf-consumer-protection {
+      width: 5.3125rem;
+      background-image: url("../../../assets/images/home/certifications/gaf-consumer-protection.webp");
+    }
+
+    .certification-logo--gaf-training {
+      width: 4.5rem;
+      background-image: url("../../../assets/images/home/certifications/gaf-training.webp");
+    }
+
+    .certification-logo--owens-corning {
+      width: 7.125rem;
+      background-image: url("../../../assets/images/home/certifications/owens-corning.webp");
+    }
+
+    .certification-logo--drexel-metals {
+      width: 10.1875rem;
+      background-image: url("../../../assets/images/home/certifications/drexel-metals.webp");
+    }
+
+    .certification-logo--certainteed-five-star {
+      width: 6.375rem;
+      background-image: url("../../../assets/images/home/certifications/certainteed-5-star.webp");
+    }
+
+    .certification-card h3 {
+      width: 22.625rem;
+      font-size: 0.8125rem;
+      line-height: 1.25;
+    }
+
+    .certification-card p {
+      width: 22.625rem;
+      margin-top: 0.5625rem;
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    .slider-controls {
+      height: 2.25rem;
+      margin-top: 1rem;
+    }
+
+    .slider-button {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+</style>

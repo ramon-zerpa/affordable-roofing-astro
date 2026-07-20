@@ -1,0 +1,220 @@
+---
+import HomePathIcon from "../../icons/HomePathIcon.astro";
+import { serviceShortcuts } from "../../../data/home";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section
+  id="start-with-the-roofing-service-you-need"
+  class="service-shortcuts"
+  aria-labelledby="start-with-the-roofing-service-you-need-title"
+  data-ui-id="home.service-shortcuts"
+>
+  <div class="service-shortcuts-container">
+    <p class="section-eyebrow">{t("shortcuts.eyebrow")}</p>
+    <h2 id="start-with-the-roofing-service-you-need-title">
+      {t("shortcuts.title")}
+    </h2>
+
+    <div class="shortcut-grid">
+      {
+        serviceShortcuts.map((item) => (
+          <a class="shortcut-card" href={item.href}>
+            <span class="shortcut-icon">
+              <HomePathIcon name={item.icon} />
+            </span>
+            <span class="shortcut-copy">
+              <strong>{t(item.titleKey)}</strong>
+              <span>{t(item.bodyKey)}</span>
+              <em>
+                {t(item.linkKey)} <span aria-hidden="true">→</span>
+              </em>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-shortcuts {
+    min-height: 51.25rem;
+    background: var(--color-surface-muted);
+  }
+
+  .service-shortcuts-container {
+    width: 100%;
+    max-width: 22.5rem;
+    padding: 2.625rem 1.25rem 4.625rem;
+    margin-inline: auto;
+  }
+
+  .section-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.0375rem;
+    color: var(--color-action);
+  }
+
+  h2 {
+    max-width: 20rem;
+    margin: 0.625rem 0 0;
+    font-size: 1.625rem;
+    font-weight: 800;
+    line-height: 1.75rem;
+    color: var(--color-brand-blue);
+  }
+
+  .shortcut-grid {
+    display: grid;
+    gap: 0.875rem;
+    margin-top: 3.3125rem;
+  }
+
+  .shortcut-card {
+    display: grid;
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 1rem;
+    width: 100%;
+    min-height: 8.25rem;
+    padding: 1.125rem;
+    color: inherit;
+    text-decoration: none;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  }
+
+  .shortcut-icon {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.6875rem;
+    color: var(--color-brand-orange);
+    background: var(--color-brand-blue-soft);
+    border-radius: var(--radius-button);
+    place-items: center;
+  }
+
+  .shortcut-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .shortcut-copy strong {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-blue);
+  }
+
+  .shortcut-card:nth-child(3) .shortcut-copy strong {
+    font-size: 1.125rem;
+  }
+
+  .shortcut-copy > span {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.38;
+    color: var(--color-text);
+  }
+
+  .shortcut-copy em {
+    margin-top: auto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--color-action);
+  }
+
+  .shortcut-card:hover,
+  .shortcut-card:focus-visible {
+    border-color: var(--color-brand-blue);
+    box-shadow: 0 0.75rem 1.5rem rgb(4 47 87 / 10%);
+  }
+
+  @media (min-width: 64rem) {
+    .service-shortcuts {
+      min-height: 26.25rem;
+    }
+
+    .service-shortcuts-container {
+      max-width: 80rem;
+      padding: 3.125rem 0 2.5rem;
+    }
+
+    .section-eyebrow {
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 35.5rem;
+      margin-top: 0.625rem;
+      font-size: 1.875rem;
+      line-height: 1.1;
+    }
+
+    .shortcut-grid {
+      grid-template-columns: repeat(4, 18.25rem);
+      gap: 1.5rem;
+      margin-top: 2.3125rem;
+    }
+
+    .shortcut-card {
+      display: flex;
+      min-height: 14.5rem;
+      padding: 1.375rem;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .shortcut-copy {
+      display: contents;
+    }
+
+    .shortcut-copy strong {
+      font-size: 1.3125rem;
+      font-weight: 700;
+    }
+
+    .shortcut-card:nth-child(3) .shortcut-copy strong {
+      font-size: 1.3125rem;
+    }
+
+    .shortcut-copy > span {
+      margin-top: 0;
+      font-size: 0.875rem;
+      line-height: 1.28;
+    }
+
+    .shortcut-copy em {
+      width: 100%;
+      margin-top: auto;
+      font-size: 0.875rem;
+    }
+
+    .shortcut-copy em span {
+      display: none;
+    }
+
+    .shortcut-icon {
+      width: 2.875rem;
+      height: 2.875rem;
+    }
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+import heroMobile from "../assets/images/home/hero-roofing-mobile.webp";
+import heroDesktop from "../assets/images/home/hero-roofing.webp";
+import SiteHeader from "../components/navigation/SiteHeader.astro";
+import SiteFooter from "../components/navigation/SiteFooter.astro";
+import HomeHero from "../components/sections/home/HomeHero.astro";
+import AccreditedCertified from "../components/sections/home/AccreditedCertified.astro";
+import AffordableRoofingServices from "../components/sections/home/AffordableRoofingServices.astro";
+import ArchitecturalShingleRoofing from "../components/sections/home/ArchitecturalShingleRoofing.astro";
+import CommercialRoofingTampa from "../components/sections/home/CommercialRoofingTampa.astro";
+import ExperienceProtection from "../components/sections/home/ExperienceProtection.astro";
+import HomeFaqs from "../components/sections/home/HomeFaqs.astro";
+import ResidentialRoofingTampa from "../components/sections/home/ResidentialRoofingTampa.astro";
+import ResidentialCommercialDecision from "../components/sections/home/ResidentialCommercialDecision.astro";
+import ReviewsFinancing from "../components/sections/home/ReviewsFinancing.astro";
+import RoofingMaterialGuide from "../components/sections/home/RoofingMaterialGuide.astro";
+import RoofFinancingOptions from "../components/sections/home/RoofFinancingOptions.astro";
+import ServiceShortcuts from "../components/sections/home/ServiceShortcuts.astro";
+import TopThreePercent from "../components/sections/home/TopThreePercent.astro";
+import { homeFaqs } from "../data/home";
+import { useTranslations } from "../i18n/utils";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { site } from "../data/site";
+import {
+  createFaqPageSchema,
+  createRoofingContractorSchema,
+} from "../lib/structured-data";
+
+const lang = "en" as const;
+const title = "Affordable Roofing Systems | Tampa Bay Roofing Contractor";
+const description =
+  "Affordable Roofing Systems provides roof repair, replacement and storm-response services throughout the Tampa Bay area.";
+const t = useTranslations(lang);
+const localizedFaqs = homeFaqs.map((faq) => ({
+  ...faq,
+  question: t(faq.questionKey),
+  answer: t(faq.answerKey),
+}));
+const faqSchema = createFaqPageSchema(localizedFaqs);
+const roofingContractorSchema = createRoofingContractorSchema(site);
+---
+
+<SiteLayout
+  lang={lang}
+  title={title}
+  description={description}
+  structuredData={[faqSchema, roofingContractorSchema]}
+  preloadImage={{
+    href: heroDesktop.src,
+    srcset: `${heroMobile.src} ${heroMobile.width}w, ${heroDesktop.src} ${heroDesktop.width}w`,
+    sizes: "100vw",
+  }}
+>
+  <SiteHeader lang={lang} />
+  <main id="main-content">
+    <HomeHero lang={lang} />
+    <ServiceShortcuts lang={lang} />
+    <ReviewsFinancing lang={lang} />
+    <ResidentialCommercialDecision lang={lang} />
+    <ResidentialRoofingTampa lang={lang} />
+    <ArchitecturalShingleRoofing lang={lang} />
+    <RoofingMaterialGuide lang={lang} />
+    <CommercialRoofingTampa lang={lang} />
+    <TopThreePercent lang={lang} />
+    <ExperienceProtection lang={lang} />
+    <AccreditedCertified lang={lang} />
+    <RoofFinancingOptions lang={lang} />
+    <AffordableRoofingServices lang={lang} />
+    <HomeFaqs lang={lang} items={localizedFaqs} />
+  </main>
+  <SiteFooter lang={lang} />
+</SiteLayout>
