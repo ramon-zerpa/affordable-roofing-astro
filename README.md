@@ -147,6 +147,8 @@ work.
 
 ## Deployment
 
+Review deployment: <https://affordable-roofing-astro.vercel.app>
+
 Vercel builds the project with:
 
 ```text
