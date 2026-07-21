@@ -32,8 +32,11 @@ const t = useTranslations(lang);
         {
           homeReviews.map((review) => (
             <article class="review-card">
-              <p class="review-stars" aria-label={t("reviews.starsLabel")}>
+              <p class="review-stars">
                 <span aria-hidden="true">★★★★★</span>
+                <span class="review-stars__label">
+                  {t("reviews.starsLabel")}
+                </span>
               </p>
               <blockquote>{t(review.quoteKey)}</blockquote>
               <p class="review-name">{t(review.nameKey)}</p>
@@ -140,6 +143,18 @@ const t = useTranslations(lang);
     line-height: 1;
     letter-spacing: 0.0625rem;
     color: var(--color-brand-orange);
+  }
+
+  .review-stars__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   blockquote {
