@@ -122,3 +122,488 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Tablet and compact desktop extend the mobile flow with wider content. */
+@media (min-width: 48rem) and (max-width: 80.999rem) {
+  body {
+    --tablet-shell: 48rem;
+    --tablet-content: 44rem;
+    --tablet-copy: 40rem;
+    --tablet-gutter: 2rem;
+  }
+
+  body .site-header .primary-navigation {
+    max-width: var(--tablet-shell);
+    padding-inline: var(--tablet-gutter);
+    margin-inline: auto;
+  }
+
+  body .site-header.site-header .header-estimate.header-estimate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 9.6875rem;
+    min-height: 2.75rem;
+    margin-left: auto;
+    font-size: 0.8125rem;
+    font-weight: 900;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    background: var(--color-action);
+    border-radius: var(--radius-button);
+  }
+
+  body .site-header .mobile-navigation {
+    margin-left: 0.75rem;
+  }
+
+  body .hero .hero-container {
+    max-width: var(--tablet-shell);
+    padding-inline: var(--tablet-gutter);
+  }
+
+  body .hero .hero-copy {
+    max-width: var(--tablet-content);
+  }
+
+  body .hero h1,
+  body .hero .hero-body,
+  body .hero .hero-actions,
+  body .hero .service-area,
+  body .hero .trust-grid {
+    width: 100%;
+    max-width: var(--tablet-copy);
+  }
+
+  body .service-shortcuts.service-shortcuts,
+  body .reviews-financing.reviews-financing,
+  body .roofing-decision.roofing-decision,
+  body .residential-roofing.residential-roofing,
+  body .shingle-roofing.shingle-roofing,
+  body .material-guide.material-guide,
+  body .commercial-roofing.commercial-roofing,
+  body .top-three.top-three,
+  body .experience-protection.experience-protection,
+  body .accredited-certified.accredited-certified,
+  body .roof-financing.roof-financing,
+  body .roofing-services.roofing-services {
+    min-height: auto;
+  }
+
+  body .service-shortcuts .service-shortcuts-container,
+  body .reviews-financing .reviews-financing-container,
+  body .roofing-decision .roofing-decision-container,
+  body .residential-roofing .residential-container,
+  body .shingle-roofing .shingle-container,
+  body .material-guide .material-container,
+  body .commercial-roofing .commercial-container,
+  body .top-three .top-three-container,
+  body .experience-protection .experience-container,
+  body .accredited-certified .accredited-container,
+  body .roof-financing .financing-panel,
+  body .roofing-services .services-container,
+  body .roofing-faqs .faq-columns {
+    max-width: var(--tablet-shell);
+    min-height: auto;
+    padding-inline: var(--tablet-gutter);
+  }
+
+  body .service-shortcuts .shortcut-grid,
+  body .reviews-financing .review-grid,
+  body .roofing-decision .decision-grid,
+  body .shingle-roofing .manufacturer-grid,
+  body .material-guide .material-card-grid,
+  body .commercial-roofing .commercial-card-grid,
+  body .experience-protection .protection-list,
+  body .accredited-certified .certification-slide,
+  body .roofing-services .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  body .service-shortcuts h2,
+  body .reviews-financing h2,
+  body .roofing-decision h2,
+  body .residential-roofing h2,
+  body .shingle-roofing h2,
+  body .material-guide h2,
+  body .commercial-roofing h2,
+  body .top-three h2,
+  body .experience-protection h2,
+  body .accredited-certified h2,
+  body .roof-financing h2,
+  body .roofing-services h2,
+  body .roofing-faqs h2,
+  body .reviews-financing .section-body,
+  body .roofing-decision .section-body,
+  body .residential-roofing .residential-intro,
+  body .residential-roofing .residential-support,
+  body .shingle-roofing .section-body,
+  body .material-guide .section-body,
+  body .commercial-roofing .section-body,
+  body .top-three .section-body,
+  body .experience-protection .section-body,
+  body .accredited-certified .section-body,
+  body .roof-financing .section-body,
+  body .roofing-services .section-body,
+  body .roofing-faqs .section-body {
+    width: auto;
+    max-width: var(--tablet-copy);
+  }
+
+  body .reviews-financing.reviews-financing .financing-copy.financing-copy h3,
+  body
+    .reviews-financing.reviews-financing
+    .financing-copy.financing-copy
+    > p:last-of-type {
+    width: 100%;
+    max-width: var(--tablet-copy);
+  }
+
+  body .reviews-financing.reviews-financing .financing-panel.financing-panel {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  body .reviews-financing.reviews-financing .contact-band.contact-band strong,
+  body .site-footer.site-footer .footer-brand.footer-brand p {
+    width: 100%;
+    max-width: var(--tablet-copy);
+  }
+
+  body .reviews-financing .contact-band {
+    padding-inline: var(--tablet-gutter);
+    margin-inline: calc(-1 * var(--tablet-gutter));
+  }
+
+  body .roofing-decision .decision-visual {
+    width: 100%;
+    height: 24rem;
+  }
+
+  body .roofing-decision .decision-main-image {
+    width: 100%;
+    height: 22rem;
+  }
+
+  body .roofing-decision .experience-stat {
+    bottom: 0;
+  }
+
+  body .roofing-decision .decision-card-copy,
+  body .roofing-decision .decision-card-copy strong {
+    width: auto;
+  }
+
+  body .residential-roofing .residential-visual {
+    width: 100%;
+    height: 22.25rem;
+  }
+
+  body .residential-roofing .residential-main-image {
+    width: 100%;
+    height: 20rem;
+  }
+
+  body .residential-roofing .residential-stat {
+    top: 17.75rem;
+  }
+
+  body .residential-roofing .residential-benefits,
+  body .experience-protection .experience-stats,
+  body .roof-financing .financing-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  body .shingle-roofing .shingle-visual {
+    width: 100%;
+    height: 22rem;
+  }
+
+  body .shingle-roofing .shingle-image {
+    width: 100%;
+    height: 17.25rem;
+  }
+
+  body .shingle-roofing .shingle-products {
+    top: 16.5rem;
+    width: 100%;
+  }
+
+  body .shingle-roofing .manufacturer-card,
+  body .shingle-roofing .manufacturer-card:last-child {
+    min-height: 17rem;
+  }
+
+  body .material-guide .material-card-grid {
+    gap: 1.25rem;
+  }
+
+  body .material-guide .material-card {
+    height: 22rem;
+  }
+
+  body .material-guide .material-image {
+    width: 100%;
+    height: 10rem;
+  }
+
+  body .commercial-roofing .commercial-card-grid {
+    gap: 1.25rem;
+  }
+
+  body .top-three .top-three-container,
+  body .experience-protection .experience-container,
+  body .accredited-certified .accredited-container {
+    min-height: auto;
+  }
+
+  body .top-three .certification-logos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  body .top-three .certification-logo {
+    width: 100%;
+    height: 9rem;
+    place-items: center;
+  }
+
+  body .top-three .certification-logo img {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+
+  body .experience-protection .experience-container {
+    position: static;
+    padding-block: 2.8125rem 3.75rem;
+  }
+
+  body .experience-protection .experience-stats,
+  body .experience-protection .protection-list {
+    position: static;
+    margin-top: 1.875rem;
+  }
+
+  body .experience-protection .experience-stats {
+    gap: 0.75rem;
+  }
+
+  body .experience-protection .protection-list {
+    width: 100%;
+  }
+
+  body .experience-protection .protection-card,
+  body .experience-protection .protection-card--tall {
+    height: auto;
+    min-height: 11rem;
+    padding: 4.375rem 1.25rem 1.25rem;
+  }
+
+  body .experience-protection .protection-card p,
+  body .experience-protection .protection-card--tall p {
+    position: static;
+    max-width: none;
+    margin-top: 0.75rem;
+  }
+
+  body .accredited-certified .certification-card {
+    height: 7.5rem;
+  }
+
+  body .roof-financing .financing-panel {
+    position: static;
+    padding-block: 3.125rem 4rem;
+  }
+
+  body .roof-financing .financing-copy,
+  body .roof-financing .financing-facts {
+    position: static;
+  }
+
+  body .roof-financing .financing-copy {
+    width: auto;
+  }
+
+  body .roof-financing .financing-facts {
+    gap: 1.6875rem 0.75rem;
+    margin-top: 3rem;
+  }
+
+  body .roof-financing .financing-fact {
+    width: auto;
+  }
+
+  body .roofing-services .services-container {
+    position: static;
+    padding-block: 3.125rem 4rem;
+  }
+
+  body .roofing-services .services-copy,
+  body .roofing-services .services-grid {
+    position: static;
+    width: auto;
+  }
+
+  body .roofing-services .services-grid {
+    margin-top: 2.5rem;
+  }
+
+  body .roofing-services .service-card:nth-child(n) {
+    width: auto;
+    height: 23rem;
+  }
+
+  body .roofing-services .service-content h3,
+  body .roofing-services .service-content p {
+    width: auto;
+  }
+
+  body .roofing-faqs .faq-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  body .roofing-faqs .faq-column,
+  body .roofing-faqs .faq-list {
+    display: contents;
+  }
+
+  body .roofing-faqs .faq-copy {
+    grid-column: 1 / -1;
+  }
+
+  body .site-footer.site-footer {
+    min-height: auto;
+  }
+
+  body .site-footer .footer-shell {
+    display: grid;
+    width: min(100% - 4rem, var(--tablet-content));
+    padding-block: 2.8125rem 2.25rem;
+    grid-template-columns: none;
+    gap: 0;
+  }
+
+  body .site-footer .footer-brand,
+  body .site-footer .footer-contact,
+  body .site-footer .footer-cta,
+  body .site-footer .footer-link-columns,
+  body .site-footer .footer-meta {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  body .site-footer .footer-contact {
+    margin-top: 2.75rem;
+  }
+
+  body .site-footer .footer-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 8.5rem;
+    padding: 1rem 1.125rem;
+    margin-top: 2.875rem;
+  }
+
+  body .site-footer .footer-cta p {
+    max-width: 24rem;
+    font-size: 1.125rem;
+  }
+
+  body .site-footer.site-footer .footer-cta.footer-cta a {
+    margin-top: 1rem;
+  }
+
+  body .site-footer .footer-link-columns {
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  body .site-footer .footer-meta {
+    display: grid;
+    grid-template-columns: none;
+    gap: 0;
+    padding-top: 0;
+    margin-top: 3rem;
+  }
+
+  body .site-footer .footer-social {
+    justify-content: flex-start;
+    margin-top: 1.625rem;
+  }
+
+  body .site-footer .footer-legal {
+    margin-top: 2.125rem;
+  }
+
+  body .site-footer .footer-credit {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+}
+
+/* Compact desktop / landscape tablet: 1024px through 1295px. */
+@media (min-width: 64rem) and (max-width: 80.999rem) {
+  body {
+    --tablet-shell: 64rem;
+    --tablet-content: 60rem;
+    --tablet-copy: 56rem;
+  }
+
+  body .hero.hero,
+  body .hero .hero-container {
+    min-height: 42rem;
+  }
+
+  body .hero.hero .hero-actions.hero-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  body .hero.hero .hero-actions .hero-estimate,
+  body .hero.hero .hero-actions .hero-phone {
+    width: 100%;
+    min-width: 0;
+  }
+
+  body .shingle-roofing.shingle-roofing .manufacturer-card.manufacturer-card h3,
+  body .shingle-roofing.shingle-roofing .manufacturer-card.manufacturer-card p,
+  body
+    .experience-protection.experience-protection
+    .protection-card.protection-card
+    h3,
+  body
+    .experience-protection.experience-protection
+    .protection-card.protection-card
+    p,
+  body
+    .roofing-services.roofing-services
+    .service-card.service-card
+    .service-content
+    h3,
+  body
+    .roofing-services.roofing-services
+    .service-card.service-card
+    .service-content
+    p {
+    width: 100%;
+    max-width: none;
+  }
+
+  body
+    .experience-protection.experience-protection
+    .protection-card.protection-card
+    p {
+    position: static;
+    margin-top: 0.75rem;
+  }
+
+  body .site-footer.site-footer .footer-cta.footer-cta p {
+    width: 100%;
+    max-width: var(--tablet-copy);
+  }
+}
