@@ -2,6 +2,7 @@
 /* eslint-disable astro/no-set-html-directive -- JSON-LD is serialized from typed local data and escapes opening angle brackets. */
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import jostLatin from "@fontsource-variable/jost/files/jost-latin-wght-normal.woff2?url";
+import MobileStickyCta from "../components/navigation/MobileStickyCta.astro";
 import "../styles/global.css";
 import { site } from "../data/site";
 import type { Lang } from "../i18n/ui";
@@ -89,5 +90,6 @@ const serializedStructuredData = structuredData.map((entry) =>
   <body>
     <a class="skip-link" href="#main-content">{t("a11y.skipToContent")}</a>
     <slot />
+    <MobileStickyCta lang={lang} />
   </body>
 </html>

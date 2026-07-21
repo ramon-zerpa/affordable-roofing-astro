@@ -9,11 +9,13 @@ export const translations = {
   en: {
     "a11y.skipToContent": "Skip to main content",
     "a11y.openMenu": "Open primary navigation",
+    "a11y.quickContact": "Quick contact",
     "site.name": "Affordable Roofing Systems",
     "site.tagline": "Where Experience and Quality Matter",
     "site.phoneDisplay": "(813) 542 8462",
     "site.estimate": "Get a Free Estimate",
     "site.estimateShort": "Get an Estimate",
+    "site.estimateSticky": "Free Estimate",
     "nav.label": "Primary navigation",
     "nav.home": "Home",
     "nav.residential": "Residential Roofing",

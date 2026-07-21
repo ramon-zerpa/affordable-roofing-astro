@@ -1,0 +1,93 @@
+---
+import { site } from "../../data/site";
+import type { Lang } from "../../i18n/ui";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav class="mobile-sticky-cta" aria-label={t("a11y.quickContact")}>
+  <a class="mobile-sticky-cta__call" href={site.phoneHref}>
+    {t("site.phoneDisplay")}
+  </a>
+  <a class="mobile-sticky-cta__estimate" href={site.estimateHref}>
+    {t("site.estimateSticky")}
+  </a>
+</nav>
+
+<style>
+  .mobile-sticky-cta {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    gap: 0.625rem;
+    align-items: center;
+    width: 100%;
+    min-height: 5.625rem;
+    padding: 1.25rem;
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+    background: var(--color-brand-navy);
+  }
+
+  .mobile-sticky-cta a {
+    display: inline-flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 3.125rem;
+    font-size: 0.875rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    border-radius: var(--radius-button);
+  }
+
+  .mobile-sticky-cta__call {
+    background: var(--color-brand-blue);
+  }
+
+  .mobile-sticky-cta__estimate {
+    background: var(--color-brand-orange);
+  }
+
+  .mobile-sticky-cta a:focus-visible {
+    outline: 0.1875rem solid var(--color-on-dark);
+    outline-offset: -0.375rem;
+  }
+
+  .mobile-sticky-cta a:active {
+    transform: translateY(1px);
+  }
+
+  @media (hover: hover) {
+    .mobile-sticky-cta__call:hover {
+      background: var(--color-brand-blue-strong);
+    }
+
+    .mobile-sticky-cta__estimate:hover {
+      background: var(--color-action-hover);
+    }
+  }
+
+  @media (max-width: 63.9375rem) {
+    :global(body) {
+      padding-bottom: calc(5.625rem + env(safe-area-inset-bottom));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .mobile-sticky-cta {
+      display: none;
+    }
+  }
+</style>
