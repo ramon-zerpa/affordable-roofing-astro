@@ -13,8 +13,10 @@ location, campaign, general, and blog pages.
 
 ## Current status
 
-- Homepage rebuilt from the approved Pencil design at the 1440 px and 360 px targets.
-- Tablet composition at 768 px remains an Astro-only implementation task.
+- Homepage rebuilt from the approved Pencil design at the 360, 768, 1024, and
+  1440 px targets.
+- Roof Repair service-page pilot implemented with the approved responsive pattern
+  and a performance-safe YouTube facade.
 - Shared header, footer, navigation, CTAs, FAQ accordion, certification slider, and
   structured data are implemented.
 - Six repeatable page families have executable content schemas and pilot fixtures.

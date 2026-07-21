@@ -1,0 +1,102 @@
+---
+import type { ImageMetadata } from "astro";
+import SiteFooter from "../navigation/SiteFooter.astro";
+import SiteHeader from "../navigation/SiteHeader.astro";
+import ServiceDamageCauses from "../sections/services/ServiceDamageCauses.astro";
+import ServiceHero from "../sections/services/ServiceHero.astro";
+import ServiceIntroduction from "../sections/services/ServiceIntroduction.astro";
+import ServiceWarningSigns from "../sections/services/ServiceWarningSigns.astro";
+import type { Lang } from "../../i18n/ui";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+interface CauseItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  hero: {
+    croHeading: string;
+    checkpoints: ReadonlyArray<string>;
+    desktopImage: ImageMetadata;
+    mobileImage: ImageMetadata;
+  };
+  introduction: {
+    heading: string;
+    paragraphs: ReadonlyArray<string>;
+    videoId: string;
+    videoTitle: string;
+    videoPoster: ImageMetadata;
+  };
+  damageCauses: {
+    heading: string;
+    items: ReadonlyArray<CauseItem>;
+  };
+  warningSigns: ReadonlyArray<string>;
+  warningSignsImage: ImageMetadata;
+  estimateHref: string;
+  phoneHref: string;
+  phoneDisplay: string;
+  structuredData?: ReadonlyArray<Record<string, unknown>>;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonicalPath,
+  hero,
+  introduction,
+  damageCauses,
+  warningSigns,
+  warningSignsImage,
+  estimateHref,
+  phoneHref,
+  phoneDisplay,
+  structuredData = [],
+} = Astro.props;
+---
+
+<SiteLayout
+  lang={lang}
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  robots="noindex,nofollow"
+  structuredData={structuredData}
+  preloadImage={{
+    href: hero.desktopImage.src,
+    srcset: `${hero.mobileImage.src} ${hero.mobileImage.width}w, ${hero.desktopImage.src} ${hero.desktopImage.width}w`,
+    sizes: "100vw",
+  }}
+>
+  <SiteHeader lang={lang} />
+  <main id="main-content">
+    <ServiceHero
+      croHeading={hero.croHeading}
+      checkpoints={hero.checkpoints}
+      desktopImage={hero.desktopImage}
+      mobileImage={hero.mobileImage}
+      estimateHref={estimateHref}
+      phoneHref={phoneHref}
+      phoneDisplay={phoneDisplay}
+    />
+    <ServiceIntroduction
+      heading={introduction.heading}
+      paragraphs={introduction.paragraphs}
+      videoId={introduction.videoId}
+      videoTitle={introduction.videoTitle}
+      videoPoster={introduction.videoPoster}
+    />
+    <ServiceDamageCauses
+      heading={damageCauses.heading}
+      items={damageCauses.items}
+    />
+    <ServiceWarningSigns items={warningSigns} image={warningSignsImage} />
+  </main>
+  <SiteFooter lang={lang} />
+</SiteLayout>

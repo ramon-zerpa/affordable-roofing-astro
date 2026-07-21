@@ -10,3 +10,11 @@ Planned groups:
 - `sections/`: reusable page sections.
 - `forms/`: accessible form presentation.
 - `seo/`: metadata and structured-data helpers.
+
+## Semantic conventions
+
+- Every `h1` and `h2` ID is derived from its visible heading: lowercase,
+  punctuation removed, and words separated with hyphens. The heading ID uses
+  the `${heading-slug}-title` pattern so its parent section can use
+  `${heading-slug}` and reference the heading with `aria-labelledby`.
+- Eyebrows are presentational labels and must always use a `div`, never a `p`.

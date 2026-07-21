@@ -70,3 +70,29 @@ export function createRoofingContractorSchema(
     sameAs: Object.values(business.social),
   } as const;
 }
+
+export interface ServiceSchemaInput {
+  name: string;
+  description: string;
+  path: string;
+  providerId: string;
+  areaServed: string;
+}
+
+export function createServiceSchema(service: ServiceSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.description,
+    url: service.path,
+    serviceType: service.name,
+    provider: {
+      "@id": service.providerId,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: service.areaServed,
+    },
+  } as const;
+}

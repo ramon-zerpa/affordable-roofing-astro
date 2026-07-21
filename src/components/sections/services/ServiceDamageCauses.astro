@@ -1,0 +1,254 @@
+---
+import { createHeadingIds } from "../../../lib/heading-ids";
+
+interface Cause {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  heading: string;
+  items: ReadonlyArray<Cause>;
+}
+
+const { heading, items } = Astro.props;
+const { sectionId, titleId } = createHeadingIds(heading);
+---
+
+<section
+  id={sectionId}
+  class="damage-causes"
+  aria-labelledby={titleId}
+  data-ui-id="roof-repair.damage-causes"
+>
+  <div class="damage-causes__container">
+    <div class="damage-causes__intro">
+      <div class="damage-causes__eyebrow">THE TAMPA CLIMATE</div>
+      <h2 id={titleId}>{heading}</h2>
+      <p>
+        Tampa’s climate puts constant stress on roofing materials, even when
+        damage is not immediately visible.
+      </p>
+    </div>
+
+    <ol class="damage-causes__grid">
+      {
+        items.map((item, index) => (
+          <li>
+            <span class="damage-causes__number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="damage-causes__note">
+      Wind or rain damage after a storm?{" "}
+      <a href="/affordable-roofing-services/storm-damage-roof-restoration/"
+        >Explore storm damage roof restoration</a
+      >.
+    </p>
+  </div>
+</section>
+
+<style>
+  .damage-causes {
+    padding-block: 4.5rem;
+    background: var(--color-surface);
+  }
+
+  .damage-causes__container {
+    width: min(100% - 2.5rem, 80rem);
+    margin-inline: auto;
+  }
+
+  .damage-causes__intro {
+    max-width: 42rem;
+  }
+
+  .damage-causes__eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    color: var(--color-brand-orange);
+  }
+
+  h2 {
+    margin: 0.875rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--color-brand-navy);
+  }
+
+  .damage-causes__intro > p:last-child {
+    margin: 1rem 0 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .damage-causes__grid {
+    display: grid;
+    gap: 0.875rem;
+    padding: 0;
+    margin: 2.25rem 0 0;
+    list-style: none;
+  }
+
+  .damage-causes__grid li {
+    position: relative;
+    min-height: 10.75rem;
+    padding: 1.5rem 1.25rem;
+    overflow: hidden;
+    background: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  }
+
+  .damage-causes__grid li::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0.25rem;
+    content: "";
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-orange),
+      var(--color-brand-blue)
+    );
+  }
+
+  .damage-causes__number {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 900;
+    color: var(--color-brand-blue);
+    background: var(--color-brand-blue-soft);
+    border-radius: var(--radius-sm);
+  }
+
+  h3 {
+    margin: 1rem 0 0;
+    font-size: 1.125rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-text-strong);
+  }
+
+  .damage-causes__grid p {
+    margin: 0.5rem 0 0;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+  }
+
+  .damage-causes__note {
+    padding-left: 1rem;
+    margin: 1.75rem 0 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    border-left: 0.25rem solid var(--color-brand-orange);
+  }
+
+  .damage-causes__note a {
+    font-weight: 800;
+    color: var(--color-brand-blue);
+  }
+
+  @media (min-width: 48rem) {
+    .damage-causes {
+      padding-block: 5rem;
+    }
+
+    .damage-causes__container {
+      width: min(100% - 4rem, 48rem);
+    }
+
+    .damage-causes__intro {
+      max-width: 40rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .damage-causes__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .damage-causes__grid li:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .damage-causes__container {
+      width: min(100% - 4rem, 64rem);
+    }
+
+    .damage-causes__intro {
+      max-width: 56rem;
+    }
+
+    .damage-causes__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .damage-causes__grid li:nth-last-child(-n + 2) {
+      grid-column: auto;
+    }
+  }
+
+  @media (min-width: 81rem) {
+    .damage-causes {
+      padding-block: 6.5rem;
+    }
+
+    .damage-causes__container {
+      width: min(100% - 3rem, 80rem);
+    }
+
+    .damage-causes__intro {
+      display: grid;
+      max-width: none;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      column-gap: 5rem;
+    }
+
+    .damage-causes__eyebrow {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    .damage-causes__intro > p:last-child {
+      align-self: end;
+      margin-top: 0.875rem;
+      font-size: 1rem;
+    }
+
+    .damage-causes__grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .damage-causes__grid li {
+      min-height: 13.5rem;
+      padding: 1.75rem 1.25rem;
+    }
+  }
+</style>

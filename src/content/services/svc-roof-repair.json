@@ -42,9 +42,11 @@
   "audience": "both",
   "customerProblems": [
     "Missing, cracked, or lifted shingles",
-    "Damaged flashing around roof penetrations",
-    "Localized storm or debris damage",
-    "Ceiling stains or attic moisture"
+    "Granule loss or buildup in gutters",
+    "Damaged or separated flashing around vents, chimneys, or roof edges",
+    "Soft spots or sagging areas on the roofline",
+    "Visible wear after storms or debris impact",
+    "Ceiling stains or attic moisture that may indicate a developing issue"
   ],
   "outcomes": [
     "Locate the underlying source of damage",
@@ -103,6 +105,33 @@
   "availableLocationRefs": ["loc-lutz"],
   "relatedPostRefs": ["post-skylight-leak-repair"],
   "supplementalSections": [
+    {
+      "type": "featureList",
+      "id": "tampa-roof-damage-causes",
+      "heading": "Why Tampa Roofs Need Repairs So Often",
+      "items": [
+        {
+          "title": "Intense sun and heat",
+          "description": "Break down roofing materials over time."
+        },
+        {
+          "title": "Heavy rain and humidity",
+          "description": "Accelerate wear across exposed roofing components."
+        },
+        {
+          "title": "Strong winds",
+          "description": "Loosen shingles, flashing, and vulnerable roof edges."
+        },
+        {
+          "title": "Aging sealants and flashing",
+          "description": "Can fail gradually around roof penetrations and transitions."
+        },
+        {
+          "title": "Storm debris",
+          "description": "Can impact and damage roofing surfaces."
+        }
+      ]
+    },
     {
       "type": "featureList",
       "id": "materials-repaired",

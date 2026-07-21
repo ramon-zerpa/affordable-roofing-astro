@@ -1,11 +1,36 @@
 {
   "roof-repair-hero": {
     "assetId": "roof-repair-hero",
-    "status": "pending",
+    "status": "approved",
     "kind": "photo",
-    "alt": "Roofing professional inspecting a damaged roof area",
-    "sourceType": "legacy",
-    "rightsStatus": "needs-review"
+    "src": "src/assets/images/services/roof-repair/hero-roof-repair.webp",
+    "alt": "Roofing professional inspecting wind-damaged shingles on a Tampa home",
+    "sourceType": "original",
+    "rightsStatus": "approved",
+    "width": 1920,
+    "height": 1080
+  },
+  "roof-repair-warning-signs": {
+    "assetId": "roof-repair-warning-signs",
+    "status": "approved",
+    "kind": "photo",
+    "src": "src/assets/images/services/roof-repair/roof-warning-signs.webp",
+    "alt": "Roofing professional checking lifted shingles and worn flashing around a roof vent",
+    "sourceType": "original",
+    "rightsStatus": "approved",
+    "width": 1280,
+    "height": 853
+  },
+  "roof-repair-video-poster": {
+    "assetId": "roof-repair-video-poster",
+    "status": "approved",
+    "kind": "photo",
+    "src": "src/assets/images/services/roof-repair/roof-repair-video-poster.webp",
+    "alt": "Roof repair video poster showing a roofing professional installing shingles",
+    "sourceType": "original",
+    "rightsStatus": "approved",
+    "width": 1280,
+    "height": 720
   },
   "flat-roofing-hero": {
     "assetId": "flat-roofing-hero",

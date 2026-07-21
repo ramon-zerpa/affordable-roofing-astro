@@ -1,0 +1,79 @@
+---
+import { getEntry } from "astro:content";
+import heroMobile from "../../assets/images/services/roof-repair/hero-roof-repair-mobile.webp";
+import heroDesktop from "../../assets/images/services/roof-repair/hero-roof-repair.webp";
+import videoPoster from "../../assets/images/services/roof-repair/roof-repair-video-poster.webp";
+import warningSignsImage from "../../assets/images/services/roof-repair/roof-warning-signs.webp";
+import ServicePageTemplate from "../../components/templates/ServicePageTemplate.astro";
+import { site } from "../../data/site";
+import {
+  createRoofingContractorSchema,
+  createServiceSchema,
+} from "../../lib/structured-data";
+
+const serviceEntry = await getEntry("services", "svc-roof-repair");
+
+if (!serviceEntry) {
+  throw new Error("Roof Repair service content entry was not found.");
+}
+
+const service = serviceEntry.data;
+const damageCauses = service.supplementalSections.find(
+  (section) =>
+    section.type === "featureList" && section.id === "tampa-roof-damage-causes",
+);
+
+if (!damageCauses || damageCauses.type !== "featureList") {
+  throw new Error("Roof Repair damage-causes section was not found.");
+}
+
+const canonicalPath = "/affordable-roofing-services/roof-repair/";
+const roofingContractorSchema = createRoofingContractorSchema(site);
+const serviceSchema = createServiceSchema({
+  name: service.serviceName,
+  description: service.seo.description,
+  path: new URL(canonicalPath, site.origin).toString(),
+  providerId: `${site.origin}/#roofing-contractor`,
+  areaServed: "Tampa Bay, Florida",
+});
+---
+
+<ServicePageTemplate
+  lang="en"
+  title={service.seo.title}
+  description={service.seo.description}
+  canonicalPath={canonicalPath}
+  hero={{
+    croHeading:
+      "Roof damage in Tampa? Get fast, targeted roof repair before it gets worse",
+    checkpoints: [
+      "Roof repair for shingle, tile, metal, and flat roofing systems",
+      "Targeted roof repair in Tampa, not guesswork",
+      "We fix the problem early, not just the visible damage",
+      "Repairs that extend roof life and prevent bigger issues",
+      "Clear recommendations with no pressure",
+    ],
+    desktopImage: heroDesktop,
+    mobileImage: heroMobile,
+  }}
+  introduction={{
+    heading: service.hero.heading,
+    videoId: "85V0Adb0ZoU",
+    videoTitle: "Affordable Roofing Systems roof repair video",
+    videoPoster,
+    paragraphs: [
+      "Roof damage doesn’t always start with a major storm. Worn materials, lifted shingles, and failing flashing can weaken your roof over time.",
+      "Affordable Roofing Systems provides local roof repair in the Tampa Bay area and surrounding communities, like Greater Carrollwood, to fix damage early, extend roof life, and prevent more expensive problems.",
+    ],
+  }}
+  damageCauses={{
+    heading: damageCauses.heading,
+    items: damageCauses.items,
+  }}
+  warningSigns={service.customerProblems}
+  warningSignsImage={warningSignsImage}
+  estimateHref={site.estimateHref}
+  phoneHref={site.phoneHref}
+  phoneDisplay={site.phoneDisplay}
+  structuredData={[roofingContractorSchema, serviceSchema]}
+/>

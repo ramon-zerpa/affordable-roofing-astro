@@ -6,6 +6,7 @@ import heroTeam from "../../../assets/images/home/hero-team.webp";
 import { heroTrustItems, site } from "../../../data/site";
 import type { Lang } from "../../../i18n/ui";
 import { useTranslations } from "../../../i18n/utils";
+import { createHeadingIds } from "../../../lib/heading-ids";
 
 interface Props {
   lang: Lang;
@@ -13,9 +14,11 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const heroTitle = t("hero.title");
+const { titleId: heroTitleId } = createHeadingIds(heroTitle);
 ---
 
-<section class="hero" aria-labelledby="homepage-hero-title">
+<section class="hero" aria-labelledby={heroTitleId}>
   <picture class="hero-background" aria-hidden="true">
     <source media="(max-width: 63.9375rem)" srcset={heroMobile.src} />
     <img
@@ -49,8 +52,8 @@ const t = useTranslations(lang);
 
   <div class="hero-container">
     <div class="hero-copy">
-      <p class="hero-eyebrow">{t("hero.eyebrow")}</p>
-      <h1 id="homepage-hero-title">{t("hero.title")}</h1>
+      <div class="hero-eyebrow">{t("hero.eyebrow")}</div>
+      <h1 id={heroTitleId}>{heroTitle}</h1>
       <p class="hero-body">{t("hero.body")}</p>
 
       <div class="hero-actions">
